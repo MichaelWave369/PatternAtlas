@@ -58,3 +58,7 @@ A source-to-claim matrix is an index of explicit citations, not a confidence sco
 ## MK9 original-document standards
 
 File hashes detect changed bytes and duplicate mirrors. They do **not** certify an original, a sender, a bank transaction or the truth of a document. Always record a page number, the narrow observation, and what that page fails to establish. Keep sensitive details out of exported notes and record whether the download link is official, a mirror, or unverified. [Original Document Protocol](docs/ORIGINAL_DOCUMENTS.md).
+
+## MK10 handling-history standards
+
+Preserve source-independent PDF fingerprinting, protect old records on source drift, and never present a self-hashed event chain as evidence of identity, custody, document authenticity, legal settlement or wrongdoing. Browser dates and researcher names are self-reported. Export head hashes separately and consult [the handling protocol](docs/HANDLING_LEDGER.md).
