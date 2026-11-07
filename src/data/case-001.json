@@ -1,0 +1,412 @@
+{
+  "id": "CASE-001",
+  "title": "The Research & Infrastructure Trail",
+  "subtitle": "OpenCog · Novamente · Southern Trust",
+  "updated": "2026-11-06",
+  "description": "A source-linked investigation of AI research proposals, payment correspondence, genomics software, and infrastructure references. The architectural ornament question is kept on a separate comparison track.",
+  "sources": [
+    {
+      "id": "doc-2013",
+      "title": "OpenCog humanoid robotics proposal",
+      "date": "2013-01-16",
+      "category": "proposal",
+      "citation": "EFTA01103505",
+      "url": "https://www.justice.gov/epstein/files/DataSet%209/EFTA01103505.pdf",
+      "note": "Proposal describes a Hong Kong AI robotics project and requested funding. A proposal does not establish payment."
+    },
+    {
+      "id": "doc-2014",
+      "title": "January grant follow-up correspondence",
+      "date": "2014-01-04",
+      "category": "correspondence",
+      "citation": "EFTA00633984",
+      "url": "https://tommycarstensen.com/epstein/documents/EFTA00633984.html",
+      "note": "Discusses a delayed contribution. This record does not itself prove a completed transfer."
+    },
+    {
+      "id": "doc-2015-pay",
+      "title": "Southern Trust payment-route email",
+      "date": "2015-01-07",
+      "category": "correspondence",
+      "citation": "EFTA00867122",
+      "url": "https://efta.threats.watch/documents/EFTA00867122",
+      "note": "Accountant discusses a prior January 2014 payment and a proposed additional payment."
+    },
+    {
+      "id": "doc-invoice",
+      "title": "Novamente genomics-analysis invoice",
+      "date": "2015-02-04",
+      "category": "invoice",
+      "citation": "EFTA01191405",
+      "url": "https://yirah.fi/epstein/en/document/EFTA01191405",
+      "note": "Invoice names Southern Trust and describes machine-learning analysis of gene-expression and SNP data. Payment and delivery require separate evidence."
+    },
+    {
+      "id": "doc-install",
+      "title": "Virgin Islands server access discussion",
+      "date": "2015-06-15",
+      "category": "correspondence",
+      "citation": "EFTA00655735",
+      "url": "https://yirah.fi/epstein/dokumentti/EFTA00655735",
+      "note": "Email discusses difficulty remotely installing software on a server because router access was not configured."
+    },
+    {
+      "id": "doc-deception",
+      "title": "OpenCog Simple Deception specification",
+      "date": "undated",
+      "category": "reference",
+      "citation": "OpenCog wiki",
+      "url": "https://www.wiki.opencog.org/w/Simple_Deception",
+      "note": "Technical research example about an agent reasoning about another agent's beliefs. Does not establish deployed harmful use."
+    },
+    {
+      "id": "doc-ornament",
+      "title": "Lexi-style architectural onlay catalog",
+      "date": "undated",
+      "category": "reference",
+      "citation": "Ekena catalog",
+      "url": "https://www.ekenamillwork.com/Ekena-Millwork-Decorative-Accents-ONL14X35X01LE",
+      "note": "Commercial catalog reference. Catalog publication date is unknown; visual similarity is not provenance or affiliation."
+    },
+    {
+      "id": "doc-virtual",
+      "title": "Virtual animals integrated cognitive architecture proposal",
+      "date": "2014-12-01",
+      "category": "proposal",
+      "citation": "EFTA00597456",
+      "url": "https://efta.threats.watch/documents/EFTA00597456",
+      "note": "Describes a proposed research budget, not a verified award or completed project."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "epstein",
+      "name": "Jeffrey Epstein",
+      "short": "JE",
+      "kind": "person",
+      "x": 158,
+      "y": 180,
+      "description": "Appears in released correspondence discussing support for AI research. A communication or funding relationship does not establish control of the research.",
+      "sourceIds": [
+        "doc-2015-pay",
+        "doc-2014"
+      ]
+    },
+    {
+      "id": "southern",
+      "name": "Southern Trust Company",
+      "short": "ST",
+      "kind": "organization",
+      "x": 390,
+      "y": 135,
+      "description": "Named in payment correspondence and as a customer on a 2015 Novamente invoice. Its broader claimed business activities require separate verification.",
+      "sourceIds": [
+        "doc-2015-pay",
+        "doc-invoice"
+      ]
+    },
+    {
+      "id": "novamente",
+      "name": "Novamente LLC",
+      "short": "NV",
+      "kind": "organization",
+      "x": 633,
+      "y": 140,
+      "description": "AI research company named as issuer of the 2015 genomics-analysis software invoice.",
+      "sourceIds": [
+        "doc-invoice",
+        "doc-virtual"
+      ]
+    },
+    {
+      "id": "goertzel",
+      "name": "Ben Goertzel",
+      "short": "BG",
+      "kind": "person",
+      "x": 830,
+      "y": 260,
+      "description": "AI researcher involved in OpenCog and the cited research and funding correspondence.",
+      "sourceIds": [
+        "doc-2013",
+        "doc-2014",
+        "doc-install"
+      ]
+    },
+    {
+      "id": "opencog",
+      "name": "OpenCog research",
+      "short": "OC",
+      "kind": "research",
+      "x": 666,
+      "y": 385,
+      "description": "Open-source cognitive architecture, including probabilistic reasoning and agent modeling. Research proposals and implementations must be distinguished.",
+      "sourceIds": [
+        "doc-2013",
+        "doc-deception",
+        "doc-virtual"
+      ]
+    },
+    {
+      "id": "polyu",
+      "name": "Hong Kong Polytechnic University",
+      "short": "HK",
+      "kind": "institution",
+      "x": 874,
+      "y": 480,
+      "description": "Institution named in a 2013 OpenCog-linked humanoid robotics proposal.",
+      "sourceIds": [
+        "doc-2013"
+      ]
+    },
+    {
+      "id": "server",
+      "name": "Virgin Islands AI server",
+      "short": "SV",
+      "kind": "infrastructure",
+      "x": 390,
+      "y": 345,
+      "description": "Equipment referenced in 2015 remote-access correspondence. Workload, physical host and actual installation are not established by this email alone.",
+      "sourceIds": [
+        "doc-install"
+      ]
+    },
+    {
+      "id": "motif",
+      "name": "Oval Office three-loop motif",
+      "short": "φ",
+      "kind": "motif",
+      "x": 198,
+      "y": 540,
+      "description": "Original visual lead. No sourced connection to the research or financial network has been demonstrated.",
+      "sourceIds": [
+        "doc-ornament"
+      ]
+    },
+    {
+      "id": "onlay",
+      "name": "Lexi-style onlay",
+      "short": "LX",
+      "kind": "artifact",
+      "x": 420,
+      "y": 535,
+      "description": "Modern cataloged ornamental applique used only as a comparison reference; manufacturing origin of the photographed motif has not been proven.",
+      "sourceIds": [
+        "doc-ornament"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "epstein",
+      "to": "southern",
+      "label": "funding correspondence",
+      "assessment": "documented",
+      "summary": "Released correspondence concerning payments and Southern Trust includes Epstein and his accountant. This represents a financial correspondence trail, not proof of control over research.",
+      "sourceIds": [
+        "doc-2015-pay"
+      ]
+    },
+    {
+      "id": "e2",
+      "from": "southern",
+      "to": "novamente",
+      "label": "named invoice customer",
+      "assessment": "documented",
+      "summary": "Novamente's February 2015 invoice names Southern Trust as the customer for a genomics analysis software-and-services package. The invoice alone does not prove payment or deployment.",
+      "sourceIds": [
+        "doc-invoice"
+      ]
+    },
+    {
+      "id": "e3",
+      "from": "novamente",
+      "to": "goertzel",
+      "label": "proposal correspondence",
+      "assessment": "documented",
+      "summary": "The proposal and funding correspondence identify Goertzel in the Novamente/OpenCog research orbit.",
+      "sourceIds": [
+        "doc-2014",
+        "doc-virtual"
+      ]
+    },
+    {
+      "id": "e4",
+      "from": "goertzel",
+      "to": "opencog",
+      "label": "research involvement",
+      "assessment": "documented",
+      "summary": "Goertzel appears in source-linked OpenCog research proposals and documentation.",
+      "sourceIds": [
+        "doc-2013",
+        "doc-virtual"
+      ]
+    },
+    {
+      "id": "e5",
+      "from": "opencog",
+      "to": "polyu",
+      "label": "research proposal",
+      "assessment": "documented",
+      "summary": "The January 2013 proposal describes OpenCog-related robotics research at Hong Kong Polytechnic University. This does not show the requested private grant was paid.",
+      "sourceIds": [
+        "doc-2013"
+      ]
+    },
+    {
+      "id": "e6",
+      "from": "southern",
+      "to": "server",
+      "label": "related access correspondence",
+      "assessment": "reported",
+      "summary": "The released Virgin Islands server correspondence is associated with AI research and a Southern Trust-related computing trail. Physical ownership and actual workload are not independently verified here.",
+      "sourceIds": [
+        "doc-install"
+      ]
+    },
+    {
+      "id": "e7",
+      "from": "server",
+      "to": "goertzel",
+      "label": "installation discussion",
+      "assessment": "documented",
+      "summary": "Goertzel discussed remote access difficulties installing research software. The email does not show that installation was completed.",
+      "sourceIds": [
+        "doc-install"
+      ]
+    },
+    {
+      "id": "e8",
+      "from": "motif",
+      "to": "onlay",
+      "label": "visual comparison only",
+      "assessment": "unverified",
+      "summary": "The motifs share classical decorative features. No identical pattern, common maker, or historical connection has been established.",
+      "sourceIds": [
+        "doc-ornament"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "t1",
+      "date": "2013-01-16",
+      "title": "Hong Kong OpenCog robotics proposal",
+      "description": "The research plan requests further funding and describes laboratory staffing and computing needs.",
+      "assessment": "documented",
+      "sourceIds": [
+        "doc-2013"
+      ]
+    },
+    {
+      "id": "t2",
+      "date": "2014-01-04",
+      "title": "Follow-up on delayed grant",
+      "description": "Correspondence asks about funds under discussion. The email is not a bank confirmation.",
+      "assessment": "documented",
+      "sourceIds": [
+        "doc-2014"
+      ]
+    },
+    {
+      "id": "t3",
+      "date": "2014-09-01",
+      "title": "Simple Deception technical specification",
+      "description": "A source-linked design for agent belief-modeling and deception in a constrained experiment. Date is approximate for browsing order.",
+      "assessment": "reported",
+      "sourceIds": [
+        "doc-deception"
+      ]
+    },
+    {
+      "id": "t4",
+      "date": "2014-12-01",
+      "title": "Virtual-animals architecture proposal",
+      "description": "Proposes testing integrated AI components in simulated animals; the proposed budget is not evidence of an award. Month approximate.",
+      "assessment": "reported",
+      "sourceIds": [
+        "doc-virtual"
+      ]
+    },
+    {
+      "id": "t5",
+      "date": "2015-01-07",
+      "title": "Southern Trust payment-route email",
+      "description": "Accountant discusses earlier funding and a proposed new payment.",
+      "assessment": "documented",
+      "sourceIds": [
+        "doc-2015-pay"
+      ]
+    },
+    {
+      "id": "t6",
+      "date": "2015-02-04",
+      "title": "Genomics software invoice",
+      "description": "Novamente invoices Southern Trust for machine learning and automated reasoning for gene expression and SNP data.",
+      "assessment": "documented",
+      "sourceIds": [
+        "doc-invoice"
+      ]
+    },
+    {
+      "id": "t7",
+      "date": "2015-06-15",
+      "title": "Virgin Islands server configuration issue",
+      "description": "Email reports unsuccessful remote software installation due to router configuration.",
+      "assessment": "documented",
+      "sourceIds": [
+        "doc-install"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "question": "Was the February 2015 genomics software delivered and used?",
+      "context": "An itemized invoice and separate access correspondence make this question testable, but neither is a deployment record.",
+      "forEvidence": "Invoice describes software, installation and training services.",
+      "againstEvidence": "No verified installation log, acceptance record or matching payment confirmation in the seeded documents.",
+      "nextCheck": "Seek bank confirmation, inventory, signed acceptance, and deployment logs.",
+      "sourceIds": [
+        "doc-invoice",
+        "doc-install"
+      ]
+    },
+    {
+      "id": "h2",
+      "question": "Did the remote server process genetic datasets?",
+      "context": "A genomics-related invoice and an AI-server email concern the same broad research environment but do not establish a shared workload.",
+      "forEvidence": "Both records involve software work and infrastructure during 2015.",
+      "againstEvidence": "No host identifiers, data inventory, dataset access records or application logs are linked.",
+      "nextCheck": "Match host asset identifiers and documented application/data provenance.",
+      "sourceIds": [
+        "doc-invoice",
+        "doc-install"
+      ]
+    },
+    {
+      "id": "h3",
+      "question": "Does the exact three-loop ornament recur at connected properties?",
+      "context": "The ornamental photograph motivated this atlas. Broad decorative similarities are not exact matches.",
+      "forEvidence": "Historically inspired onlays repeat similar curls and floral forms.",
+      "againstEvidence": "No matching maker, mold, construction record or independently confirmed duplicate has been established.",
+      "nextCheck": "Compare normalized contours and original architectural catalog plates, with dated provenance.",
+      "sourceIds": [
+        "doc-ornament"
+      ]
+    },
+    {
+      "id": "h4",
+      "question": "Which proposed AI grants were actually paid?",
+      "context": "Correspondence includes requested amounts, payment-route changes, and research proposals.",
+      "forEvidence": "The documents show negotiated contributions and retrospective payment references.",
+      "againstEvidence": "A proposal, invoice, or authorization is not a completed bank settlement.",
+      "nextCheck": "Reconcile grant agreements, receiving-party accounts, and transaction confirmations.",
+      "sourceIds": [
+        "doc-2014",
+        "doc-2015-pay",
+        "doc-virtual"
+      ]
+    }
+  ]
+}
