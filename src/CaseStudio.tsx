@@ -11,7 +11,7 @@ const tabs: Array<{ id:EditorKind; label:string }> = [
 const nodeKinds: NodeKind[] = ['person','organization','research','institution','infrastructure','artifact','motif'];
 const statuses: Assessment[] = ['documented','reported','unverified'];
 const categories: Array<CaseFile['sources'][number]['category']> = ['correspondence','proposal','invoice','reference'];
-const fresh = () => ({title:'',description:'',citation:'',url:'',date:'undated',category:'reference',
+const fresh = () => ({title:'',description:'',citation:'',url:'',note:'',date:'undated',category:'reference',
   name:'',short:'',kind:'organization',sourceId:'',from:'',to:'',label:'',summary:'',assessment:'unverified',
   question:'',context:'',forEvidence:'',againstEvidence:'',nextCheck:'',stage:'proposed',
   established:'',notEstablished:''});
@@ -191,7 +191,7 @@ export default function CaseStudio({ caseFile, isEditable, onCreate, onFork, onS
       <div className="studio-save-row"><button className="studio-primary" onClick={add}>+ Add sourced record</button><span>Changes save to local browser storage only.</span></div>
     </div>}
     <div className="studio-records"><h3>{tabs.find((item)=>item.id===tab)?.label} <span>({items.length})</span></h3>{items.map((item)=>{
-      const title='citation'in item?item.citation:'name'in item?item.name:'label'in item?item.label:'question'in item?item.question:'title'in item?item.title:item.id;
+      const title='citation'in item?item.citation:'name'in item?item.name:'label'in item?item.label:'question'in item?item.question:'title'in item?item.title:'Untitled record';
       const sourceCount='sourceIds' in item?item.sourceIds.length:0;
       return <article key={item.id} className="studio-record"><div><strong>{title}</strong><small>{item.id}{sourceCount?' · '+sourceCount+' cited source(s)':''}</small></div>
         {isEditable&&<button aria-label={'Remove '+title} onClick={()=>removeItem(item.id)}>Remove</button>}</article>;
