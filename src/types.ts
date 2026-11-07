@@ -1,6 +1,6 @@
 export type NodeKind = 'person' | 'organization' | 'research' | 'institution' | 'infrastructure' | 'artifact' | 'motif';
 export type Assessment = 'documented' | 'reported' | 'unverified';
-export type Page = 'explore' | 'studio' | 'verify' | 'queue' | 'dossiers' | 'reconciliation' | 'audit' | 'originals' | 'handling' | 'trace' | 'timeline' | 'evidence' | 'patterns' | 'hypotheses' | 'method';
+export type Page = 'explore' | 'studio' | 'verify' | 'queue' | 'dossiers' | 'reconciliation' | 'audit' | 'originals' | 'handling' | 'capsule' | 'trace' | 'timeline' | 'evidence' | 'patterns' | 'hypotheses' | 'method';
 
 export interface AtlasSource {
   id: string;

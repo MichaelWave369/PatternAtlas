@@ -62,3 +62,7 @@ File hashes detect changed bytes and duplicate mirrors. They do **not** certify 
 ## MK10 handling-history standards
 
 Preserve source-independent PDF fingerprinting, protect old records on source drift, and never present a self-hashed event chain as evidence of identity, custody, document authenticity, legal settlement or wrongdoing. Browser dates and researcher names are self-reported. Export head hashes separately and consult [the handling protocol](docs/HANDLING_LEDGER.md).
+
+## MK11 Case Capsule privacy and portability
+
+Treat selected case content as potentially sensitive even when optional private layers are excluded. Ensure default export includes no private original-document manifest or handling journal, require explicit opt-in for each, never include PDF bytes and never write to browser storage when opening a capsule. Preserve clear distinction between structural checksum validation and trusted authorship or factual accuracy. [Case Capsule protocol](docs/CASE_CAPSULES.md).

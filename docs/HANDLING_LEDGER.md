@@ -68,3 +68,7 @@ All journal data is held in per-case localStorage under `pattern-atlas.handling.
 Run `npm test` and `npm run build`. The handling test suite includes chain extension, altered event detection, source and file drift, malformed JSON, duplicate IDs and a demonstration that recomputing an entire journal makes the chain self-consistent without establishing authenticity.
 
 **Ledger Above Ego. Evidence Above Assumption.**
+
+## MK11 portable case exports
+
+A **Case capsule** may include a copy of this history if the researcher explicitly selects both private PDF metadata and handling notes. The capsule's outer hash and event hash chain can be checked offline. Import preview is read-only and cannot restore or certify custody. See [MK11 case capsules](CASE_CAPSULES.md).
