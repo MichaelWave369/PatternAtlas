@@ -210,7 +210,7 @@ export default function VerificationConsole({caseFile}:{caseFile:CaseFile}) {
         <div className="verify-claim-statement"><span>WHAT THE CASE RECORD STATES</span><p>{active.statement}</p></div>
         <div className="verify-limit"><span>WHAT THIS DOES NOT ESTABLISH</span><p>{active.limitation}</p></div>
         <h3>Source documents</h3>
-        <div className="verify-linked-sources">{active.sourceIds.map((id)=>{
+        <div className="verify-linked-sources">{active.sourceIds.map((id:string)=>{
           const s=caseFile.sources.find((source)=>source.id===id);
           return s?<div key={id}><strong>{s.citation}</strong><span>{safeHost(s.url)} · {s.category}</span><a href={s.url} target="_blank" rel="noopener noreferrer">Open document ↗</a></div>:null;
         })}</div>
