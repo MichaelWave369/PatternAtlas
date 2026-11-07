@@ -1,16 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import rawCase from './data/case-001.json';
+import rawCase2 from './data/case-002.json';
+import CaseStudio from './CaseStudio';
+import { loadLocalCases, saveLocalCases, newCaseId } from './localCases';
 import ClaimTrace from './ClaimTrace';
 import PatternLab from './PatternLab';
 import ResearchNotebook from './ResearchNotebook';
 import type { Assessment, AtlasEvent, AtlasSource, CaseFile, NodeKind, Page } from './types';
 
-const caseFile = rawCase as unknown as CaseFile;
-const sourceIndex = new Map(caseFile.sources.map((source) => [source.id, source]));
-const nodeIndex = new Map(caseFile.nodes.map((node) => [node.id, node]));
+const publishedCases = [rawCase as unknown as CaseFile, rawCase2 as unknown as CaseFile];
 const PAGES: Array<{ id: Page; label: string; glyph: string }> = [
   { id: 'explore', label: 'Connection map', glyph: '◎' },
+  { id: 'studio', label: 'Case studio', glyph: '⊞' },
   { id: 'trace', label: 'Claim trace', glyph: '↣' },
   { id: 'timeline', label: 'Chronology', glyph: '◷' },
   { id: 'evidence', label: 'Evidence ledger', glyph: '▤' },
@@ -35,7 +37,8 @@ const dateLabel = (date: string) => /^\d{4}-\d{2}-\d{2}$/.test(date) ? new Date(
 function Status({ value }: { value: Assessment }) {
   return <span className={'status status-' + value}><span className="status-dot" />{value}</span>;
 }
-function Sources({ ids, compact = false }: { ids: string[]; compact?: boolean }) {
+function Sources({ ids, caseFile, compact = false }: { ids: string[]; caseFile: CaseFile; compact?: boolean }) {
+  const sourceIndex = new Map(caseFile.sources.map((source) => [source.id, source]));
   const sources = ids.map((id) => sourceIndex.get(id)).filter((source): source is AtlasSource => Boolean(source));
   return <div className={'source-links' + (compact ? ' source-links-compact' : '')}>
     {sources.map((source) => <a key={source.id} href={source.url} target="_blank" rel="noreferrer noopener" title={source.note}>
@@ -50,7 +53,8 @@ function SectionTitle({ eyebrow, title, description }: { eyebrow: string; title:
     <p>{description}</p>
   </div>;
 }
-function GraphView({ visible, selected, onSelect, zoom, onZoom, pan, onPan }: {
+function GraphView({ caseFile, visible, selected, onSelect, zoom, onZoom, pan, onPan }: {
+  caseFile:CaseFile;
   visible: Set<string>;
   selected: Selection;
   onSelect: (selection: Selection) => void;
@@ -60,6 +64,7 @@ function GraphView({ visible, selected, onSelect, zoom, onZoom, pan, onPan }: {
   onPan: (pan: { x: number; y: number }) => void;
 }) {
   const drag = useRef<{ x: number; y: number } | null>(null);
+  const nodeIndex = new Map(caseFile.nodes.map((node) => [node.id, node]));
   const vbWidth = 1120 / zoom;
   const vbHeight = 660 / zoom;
   const viewBox = [560 - vbWidth / 2 + pan.x, 330 - vbHeight / 2 + pan.y, vbWidth, vbHeight].join(' ');
@@ -125,7 +130,8 @@ function GraphView({ visible, selected, onSelect, zoom, onZoom, pan, onPan }: {
     <div className="map-footer"><span className="legend-item"><span className="legend-line legend-confirmed" />Documented</span><span className="legend-item"><span className="legend-line legend-reported" />Reported</span><span className="legend-item"><span className="legend-line legend-unverified" />Unverified</span><span className="map-disclaimer">Positions do not imply geography or influence</span></div>
   </div>;
 }
-function Inspector({ selected }: { selected: Selection }) {
+function Inspector({ caseFile, selected }: { caseFile:CaseFile; selected: Selection }) {
+  const nodeIndex = new Map(caseFile.nodes.map((node) => [node.id, node]));
   const node = selected.type === 'node' ? nodeIndex.get(selected.id) : undefined;
   const edge = selected.type === 'edge' ? caseFile.edges.find((candidate) => candidate.id === selected.id) : undefined;
   if (node) {
@@ -147,7 +153,7 @@ function Inspector({ selected }: { selected: Selection }) {
       </div>
       <div className="divider" />
       <div className="small-overline">Supporting sources</div>
-      <Sources ids={node.sourceIds} />
+      <Sources ids={node.sourceIds} caseFile={caseFile} />
       <p className="context-note">A documented relationship does not imply criminal conduct, institutional endorsement, or control.</p>
     </aside>;
   }
@@ -160,34 +166,34 @@ function Inspector({ selected }: { selected: Selection }) {
     <p className="inspector-copy">{edge.summary}</p>
     <div className="divider" />
     <div className="small-overline">Source records</div>
-    <Sources ids={edge.sourceIds} />
+    <Sources ids={edge.sourceIds} caseFile={caseFile} />
     <p className="context-note">Assessment describes the specific labeled relationship only, not other possible conclusions.</p>
   </aside>;
   return <aside className="inspector"><h2>Select an entity</h2><p>Click a node or a connection to inspect sources.</p></aside>;
 }
-function Timeline({ search }: { search: string }) {
+function Timeline({ caseFile, search }: { caseFile:CaseFile; search: string }) {
   const events = caseFile.events.filter((item) => (item.title + item.description + item.date).toLowerCase().includes(search.toLowerCase())).sort((a, b) => a.date.localeCompare(b.date));
   return <section className="content-page">
-    <SectionTitle eyebrow="CHRONOLOGY / CASE 001" title="Following the sequence." description="Primary documents, proposal dates, and infrastructure correspondence in chronological context. Approximate dates are labeled." />
+    <SectionTitle eyebrow={"CHRONOLOGY / "+caseFile.id} title="Following the sequence." description="Primary documents, proposal dates, and infrastructure correspondence in chronological context. Approximate dates are labeled." />
     <div className="timeline-list">
       {events.map((event: AtlasEvent, i) => <article className="timeline-event" key={event.id}>
         <div className="timeline-rail"><span className="timeline-number">{String(i + 1).padStart(2, '0')}</span></div>
         <div className="timeline-body">
           <div className="timeline-date">{dateLabel(event.date)} <Status value={event.assessment} /></div>
-          <h3>{event.title}</h3><p>{event.description}</p><Sources ids={event.sourceIds} compact />
+          <h3>{event.title}</h3><p>{event.description}</p><Sources ids={event.sourceIds} caseFile={caseFile} compact />
         </div>
       </article>)}
       {events.length === 0 && <div className="empty-state">No timeline entries match your search.</div>}
     </div>
   </section>;
 }
-function Evidence({ search }: { search: string }) {
+function Evidence({ caseFile, search }: { caseFile:CaseFile; search: string }) {
   const [category, setCategory] = useState('all');
   const filtered = caseFile.sources.filter((source) =>
     (category === 'all' || source.category === category) &&
     (source.title + source.note + source.citation).toLowerCase().includes(search.toLowerCase()));
   return <section className="content-page">
-    <SectionTitle eyebrow="SOURCE REGISTRY / CASE 001" title="Every claim needs a trail."  description="Linked documents, clearly labeled limitations, and a private source notebook. Inclusion is not certification that every interpretation has been independently audited." />
+    <SectionTitle eyebrow={"SOURCE REGISTRY / "+caseFile.id} title="Every claim needs a trail."  description="Linked documents, clearly labeled limitations, and a private source notebook. Inclusion is not certification that every interpretation has been independently audited." />
     <div className="filters-row" role="group" aria-label="Filter by document type">{['all', 'correspondence', 'proposal', 'invoice', 'reference'].map((item) => <button key={item} className={'filter-pill' + (category === item ? ' active' : '')} onClick={() => setCategory(item)}>{item}</button>)}</div>
     <div className="evidence-grid">{filtered.map((source) => <article className="evidence-card" key={source.id}>
       <div className="evidence-top"><span className="evidence-type">{source.category}</span><span className="evidence-date">{dateLabel(source.date)}</span></div>
@@ -196,19 +202,19 @@ function Evidence({ search }: { search: string }) {
       <a className="evidence-action" href={source.url} target="_blank" rel="noopener noreferrer">Inspect source ↗</a>
     </article>)}</div>
     {filtered.length === 0 && <div className="empty-state">No source records match your search.</div>}
-    <ResearchNotebook sources={caseFile.sources} />
+    <ResearchNotebook key={caseFile.id} caseId={caseFile.id} sources={caseFile.sources} />
   </section>;
 }
-function Hypotheses({ search }: { search: string }) {
+function Hypotheses({ caseFile, search }: { caseFile:CaseFile; search: string }) {
   const filtered = caseFile.hypotheses.filter((item) => (item.question + item.context + item.nextCheck).toLowerCase().includes(search.toLowerCase()));
   return <section className="content-page">
-    <SectionTitle eyebrow="HYPOTHESIS LAB / CASE 001" title="Questions, not conclusions." description="Promising patterns go here until independently tested. Each hypothesis includes what supports it, what limits it, and what would resolve the uncertainty." />
+    <SectionTitle eyebrow={"HYPOTHESIS LAB / "+caseFile.id} title="Questions, not conclusions." description="Promising patterns go here until independently tested. Each hypothesis includes what supports it, what limits it, and what would resolve the uncertainty." />
     <div className="hypothesis-grid">{filtered.map((item, i) => <article key={item.id} className="hypothesis-card">
       <div className="hypothesis-head"><span>HYPOTHESIS {String(i + 1).padStart(2, '0')}</span><span className="open-state">UNRESOLVED</span></div>
       <h3>{item.question}</h3><p>{item.context}</p>
       <div className="hypothesis-contrast"><div><span className="contrast-label positive">SUPPORTING RECORD</span><p>{item.forEvidence}</p></div><div><span className="contrast-label negative">LIMITATION / ALTERNATIVE</span><p>{item.againstEvidence}</p></div></div>
       <div className="next-check"><span>NEXT VERIFICATION STEP</span>{item.nextCheck}</div>
-      <Sources ids={item.sourceIds} compact />
+      <Sources ids={item.sourceIds} caseFile={caseFile} compact />
     </article>)}</div>
     {filtered.length === 0 && <div className="empty-state">No hypotheses match your search.</div>}
   </section>;
@@ -230,6 +236,12 @@ function Method() {
   </section>;
 }
 function App() {
+  const initialLocal = useMemo(() => loadLocalCases(), []);
+  const [localCases,setLocalCases] = useState<Record<string,CaseFile>>(initialLocal.cases);
+  const [storageError,setStorageError] = useState(initialLocal.warning);
+  const [activeId,setActiveId] = useState('CASE-001');
+  const caseFile = localCases[activeId] ?? publishedCases.find((item) => item.id === activeId) ?? publishedCases[0];
+  const isEditable = caseFile.id.startsWith('LOCAL-') && Boolean(localCases[caseFile.id]);
   const [page, setPage] = useState<Page>('explore');
   const [search, setSearch] = useState('');
   const [kind, setKind] = useState<NodeKind | 'all'>('all');
@@ -248,28 +260,76 @@ function App() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+  function switchCase(id:string) {
+    const match=localCases[id]??publishedCases.find((item)=>item.id===id);
+    if(!match) return;
+    setActiveId(id);
+    setSelected({type:'node',id:match.nodes[0]?.id??''});
+    setSearch('');
+    setKind('all');
+    setPan({x:0,y:0});
+    setZoom(1);
+  }
+  function saveCase(next:CaseFile):boolean {
+    if(initialLocal.warning){setStorageError('Existing invalid local storage was not overwritten. Back up or clear it manually before editing.');return false;}
+    const updated={...localCases,[next.id]:next};
+    const result=saveLocalCases(updated);
+    if(!result.ok){setStorageError(result.error);return false;}
+    setLocalCases(updated);setStorageError('');return true;
+  }
+  function createCase(title:string,description:string):boolean {
+    const id=newCaseId();
+    const next:CaseFile={id,title,description,subtitle:'Locally edited research case',updated:new Date().toISOString().slice(0,10),
+      sources:[],nodes:[],edges:[],events:[],hypotheses:[],traceSteps:[]};
+    if(!saveCase(next))return false;
+    setActiveId(id);setSelected({type:'node',id:''});
+    return true;
+  }
+  function forkCase():boolean {
+    const next:CaseFile={...structuredClone(caseFile),id:newCaseId(),title:(caseFile.title+' (working copy)').slice(0,160),updated:new Date().toISOString().slice(0,10)};
+    if(!saveCase(next))return false;
+    setActiveId(next.id);setSelected({type:'node',id:next.nodes[0]?.id??''});
+    return true;
+  }
+  function importCase(file:CaseFile):boolean {
+    const next:CaseFile={...structuredClone(file),id:newCaseId(),updated:new Date().toISOString().slice(0,10)};
+    if(!saveCase(next))return false;
+    setActiveId(next.id);setSelected({type:'node',id:next.nodes[0]?.id??''});return true;
+  }
+  function deleteCase() {
+    if(!isEditable || !window.confirm('Delete this entire local case from this browser? Export first if you want a backup.'))return;
+    const updated={...localCases};delete updated[caseFile.id];
+    const result=saveLocalCases(updated);
+    if(!result.ok){setStorageError(result.error);return;}
+    setLocalCases(updated);setStorageError('');setActiveId('CASE-001');setSelected({type:'node',id:publishedCases[0].nodes[0]?.id??''});
+  }
   const visible = useMemo(() => new Set(caseFile.nodes.filter((node) =>
     (kind === 'all' || node.kind === kind) &&
-    (node.name + node.description + node.kind).toLowerCase().includes(search.toLowerCase())).map((node) => node.id)), [search, kind]);
+    (node.name + node.description + node.kind).toLowerCase().includes(search.toLowerCase())).map((node) => node.id)), [caseFile, search, kind]);
   return <div className="app-frame">
     <aside className={'sidebar' + (menuOpen ? ' menu-open' : '')}>
       <div className="brand"><div className="brand-mark">Φ</div><div><strong>PATTERN<span>ATLAS</span></strong><small>RESEARCH INTELLIGENCE</small></div></div>
       <div className="sidebar-heading">WORKSPACE <span>01 / 01</span></div>
       <nav aria-label="Primary navigation" className="nav-list">{PAGES.map((item) => <button key={item.id} className={'nav-link' + (page === item.id ? ' active' : '')} onClick={() => { setPage(item.id); setMenuOpen(false); }}><span className="nav-glyph">{item.glyph}</span>{item.label}{page === item.id && <span className="active-caret">›</span>}</button>)}</nav>
       <div className="sidebar-spacer" />
-      <div className="sidebar-brief"><div className="brief-dot" /> <span>CASE FILE OPEN</span><strong>001 / Research trail</strong><p>Claims separated from hypotheses. Connections anchored to source records.</p></div>
-      <div className="sidebar-bottom"><span className="side-version">ATLAS MK2 · v0.2.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      <div className="sidebar-brief"><div className="brief-dot" /> <span>CASE FILE OPEN</span><strong>{caseFile.id} / {caseFile.title}</strong><p>Claims separated from hypotheses. Connections anchored to source records.</p></div>
+      <div className="sidebar-bottom"><span className="side-version">ATLAS MK3 · v0.3.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
     </aside>
     {menuOpen && <button aria-label="Close navigation" className="mobile-scrim" onClick={() => setMenuOpen(false)} />}
     <div className="main-area">
-      <header className="topbar"><button className="menu-toggle" aria-label="Open navigation" onClick={() => setMenuOpen(true)}>☰</button><div className="breadcrumb">FIELD INTELLIGENCE <span>/</span> <strong>{PAGES.find((item) => item.id === page)?.label.toUpperCase()}</strong></div><div className="top-actions"><label className="search-box"><span>⌕</span><input aria-label="Search case records" placeholder="Search case records..." ref={searchRef} value={search} onChange={(event) => setSearch(event.target.value)} /><kbd>/</kbd></label><span className="snapshot-label">SNAPSHOT · {caseFile.updated}</span></div></header>
+      <header className="topbar"><button className="menu-toggle" aria-label="Open navigation" onClick={() => setMenuOpen(true)}>☰</button><div className="breadcrumb">FIELD INTELLIGENCE <span>/</span> <strong>{PAGES.find((item) => item.id === page)?.label.toUpperCase()}</strong></div><div className="top-actions"><label className="case-picker-label">CASE <select aria-label="Active investigation" value={caseFile.id} onChange={(event)=>switchCase(event.target.value)}>
+        {publishedCases.map((item)=><option key={item.id} value={item.id}>{item.id}: {item.title}</option>)}
+        {Object.values(localCases).map((item)=><option key={item.id} value={item.id}>PRIVATE: {item.title}</option>)}
+      </select></label><label className="search-box"><span>⌕</span><input aria-label="Search case records" placeholder="Search case records..." ref={searchRef} value={search} onChange={(event) => setSearch(event.target.value)} /><kbd>/</kbd></label><span className="snapshot-label">SNAPSHOT · {caseFile.updated}</span></div></header>
+      {storageError&&<div className="storage-warning" role="alert">{storageError}</div>}
       {page === 'explore' ? <div className="explore-page">
         <div className="explore-intro"><div><div className="eyebrow">CASE STUDY <span className="eyebrow-divider">/</span> {caseFile.id} <span className="eyebrow-divider">/</span> OPEN RESEARCH</div><h1>Follow the evidence<span>.</span></h1><p>{caseFile.description}</p></div><div className="case-tag"><span className="case-tag-circle">◎</span><span>ACTIVE CASE<br/><strong>{caseFile.title}</strong></span></div></div>
         <div className="stat-strip"><div><strong>{caseFile.nodes.length.toString().padStart(2, '0')}</strong><span>ENTITIES & OBJECTS</span></div><div><strong>{caseFile.edges.length.toString().padStart(2, '0')}</strong><span>LABELED RELATIONSHIPS</span></div><div><strong>{caseFile.sources.length.toString().padStart(2, '0')}</strong><span>LINKED SOURCES</span></div><div><strong>{caseFile.hypotheses.length.toString().padStart(2, '0')}</strong><span>OPEN QUESTIONS</span></div></div>
         <div className="graph-head"><div><div className="eyebrow">INTERACTIVE EXPLORER</div><h2>Connection network <span className="graph-head-sub">/ {caseFile.subtitle}</span></h2></div><div className="graph-toolbar"><label htmlFor="entity-type">View by type</label><select id="entity-type" value={kind} onChange={(event) => setKind(event.target.value as NodeKind | 'all')}>{FILTERS.map((filter) => <option value={filter.value} key={filter.value}>{filter.label}</option>)}</select></div></div>
-        <div className="workspace-grid"><GraphView visible={visible} selected={selected} onSelect={setSelected} zoom={zoom} onZoom={setZoom} pan={pan} onPan={setPan}/><Inspector selected={selected}/></div>
-        <div className="editorial-foot"><span className="editorial-rule">EDITORIAL SAFEGUARD</span><p>These links describe records and narrow relationships, not wrongdoing or shared motives. The isolated ornament comparison intentionally has no connection to the finance/research network.</p></div>
-      </div> : page === 'trace' ? <ClaimTrace caseFile={caseFile} /> : page === 'timeline' ? <Timeline search={search} /> : page === 'evidence' ? <Evidence search={search} /> : page === 'patterns' ? <PatternLab /> : page === 'hypotheses' ? <Hypotheses search={search} /> : <Method />}
+        <div className="workspace-grid"><GraphView caseFile={caseFile} visible={visible} selected={selected} onSelect={setSelected} zoom={zoom} onZoom={setZoom} pan={pan} onPan={setPan}/><Inspector caseFile={caseFile} selected={selected}/></div>
+        <div className="editorial-foot"><span className="editorial-rule">EDITORIAL SAFEGUARD</span><p>These links describe records and narrowly scoped relationships, not wrongdoing or shared motives. {caseFile.id==='CASE-001'?'The architectural comparison remains disconnected from the scientific funding network.':'Only source-supported links are displayed; invoice documents never prove payment or delivery on their own.'}</p></div>
+      </div> : page === 'studio' ? <CaseStudio key={caseFile.id} caseFile={caseFile} isEditable={isEditable}
+        onCreate={createCase} onFork={forkCase} onSave={saveCase} onRemove={deleteCase} onImport={importCase} /> : page === 'trace' ? <ClaimTrace caseFile={caseFile} /> : page === 'timeline' ? <Timeline caseFile={caseFile} search={search} /> : page === 'evidence' ? <Evidence caseFile={caseFile} search={search} /> : page === 'patterns' ? <PatternLab /> : page === 'hypotheses' ? <Hypotheses caseFile={caseFile} search={search} /> : <Method />}
       <footer className="site-footer"><span>© 2026 Φ Pattern Atlas · MIT Open Source</span><span>LEDGER ABOVE EGO · EVIDENCE ABOVE ASSUMPTION</span></footer>
     </div>
   </div>;

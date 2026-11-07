@@ -6,8 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK2 includes
+## What MK3 includes
 
+- **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
+- **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Schema validation:** HTTPS links, finite coordinates, safe identifiers, unique IDs and existing source references are enforced on imports and saves. Validation does not make a claim true.
 - **Connection map:** pan, zoom, select entities or edges, filter by type and search. Click a relationship to inspect the underlying record and its scope.
 - **Claim Trace:** a sourced chronology distinguishing plans, requested invoices, actual invoices, payment questions, attempted installations and later litigation.
 - **Chronology:** dated events, with approximate dates explicitly labeled.
@@ -18,9 +21,12 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 - **Methodology:** editorial rules against unsupported jumps from contact to control or visual similarity to affiliation.
 - **GitHub Pages deployment** and CI checks.
 
-### First case: research and infrastructure correspondence
+### Curated cases
 
-Initial documents concern a 2012 proposed informatics business, OpenCog, Novamente, Southern Trust Company, related correspondence, a February 2015 software-and-services invoice, and an unsuccessful June 2015 installation attempt. Later court filings show a contested view of the company's claimed activities. None of these alone proves a commercial database was operational. The Oval Office three-loop ornament remains in an explicitly disconnected *comparison* cluster. No visual or financial connection between the ornament and the research network is claimed.
+- **Case 001:** A 2012 proposed informatics business, OpenCog, Novamente, Southern Trust Company, a February 2015 genomics software invoice, unsuccessful June remote installation, and contested 2023 litigation positions.
+- **Case 002:** A separate July 15, 2014 Southern Trust invoice document describing $20 million in estate-planning algorithms addressed to Leon Black. The document contains an unfilled recipient placeholder. It does not establish a settled payment or delivered technology.
+
+None of these documents alone proves a commercial system was operational. The Oval Office three-loop motif remains in Case 001's disconnected comparison cluster. The Oval Office three-loop ornament remains in an explicitly disconnected *comparison* cluster. No visual or financial connection between the ornament and the research network is claimed.
 
 ### Start locally
 
@@ -52,7 +58,7 @@ That URL is the expected destination, **not** a claim that a deployment has alre
 
 ## Evidence data model
 
-Case data lives in [src/data/case-001.json](src/data/case-001.json), independent of React components. See [docs/CASE_001_FINDINGS.md](docs/CASE_001_FINDINGS.md) for evidence boundaries.
+Curated case data lives in [src/data/case-001.json](src/data/case-001.json) and [src/data/case-002.json](src/data/case-002.json), independent of React components. See [docs/CASE_001_FINDINGS.md](docs/CASE_001_FINDINGS.md) and [docs/CASE_002_FINDINGS.md](docs/CASE_002_FINDINGS.md). Local cases are stored as browser-only JSON and may be exported as portable files.
 
 | Field | Purpose |
 | --- | --- |
@@ -70,6 +76,10 @@ Assessment levels:
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
 
+**Persistence:** New cases are stored in localStorage only, with validation and a size cap. Export them before clearing browser data. Unpublished local cases do not sync between computers or browsers. Existing MK2 notes for Case 001 retain their original storage key. Other cases' notebooks are scoped by case ID, and imported notebook JSON must match the active case.
+
+**Contribution:** To publish a curated case, export the JSON, verify every cited document, and propose a pull request. Case Studio never writes to GitHub automatically.
+
 ## Integrity rules
 
 Never treat a proposed payment as settled; an invoice as delivered; a source mention as endorsement; or a decorative resemblance as a common affiliation. Preserve contrary evidence and alternatives. Avoid unnecessary personal details and guilt by proximity.
@@ -78,6 +88,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, source-controlled JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.
