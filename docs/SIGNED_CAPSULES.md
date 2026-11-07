@@ -53,3 +53,7 @@ Run `npm test` and `npm run build`. Tests cover key generation, SPKI fingerprint
 MK12 deliberately preserves the existing MK11 exports and import checks, and does not modify the underlying case dataset.
 
 **Ledger Above Ego. Evidence Above Assumption.**
+
+## MK13 rotation and revocation companion
+
+The new **Key continuity** page creates two-key-authorized rotation certificates, self-revocation notices, and root-pinned reviews of new, prior, or retired signing keys. Existing MK12 signed capsules and encrypted key backups remain supported. An independently authenticated fingerprint is still mandatory for attribution. See [MK13 protocol](KEY_CONTINUITY.md).

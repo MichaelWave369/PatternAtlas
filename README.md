@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK12 includes
+## What MK13 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Key Continuity and Self-Revocation:** dual-signed P-256 key rotation, locally signed self-revocation notices, independent root-fingerprint anchoring, and review of current versus historical signers. No centralized revocation, real-world identity certification, or trusted timestamps. [MK13 protocol](docs/KEY_CONTINUITY.md).
 - **Signed Case Capsules:** optional browser-local ECDSA P-256 signature envelopes, independently pinned public-key fingerprints, and passphrase-encrypted private-key backups. Signatures verify control of a key, not human identity or document truth. [MK12 protocol](docs/SIGNED_CAPSULES.md).
 - **Portable Case Capsules:** export a selected case and its source audit, optionally attach local PDF metadata and handling history, verify SHA-256/linked references offline, and compare against the current case without automatically importing anything. Local case data may itself be sensitive. [MK11 protocol](docs/CASE_CAPSULES.md).
 - **Evidence Handling Ledger:** record append-only-in-the-UI researcher handling events, bound to MK9 PDF fingerprints, with SHA-256 hash links, self-audit, JSON/Markdown exports and independent head-anchor comparisons. This does not authenticate custody. [MK10 protocol](docs/HANDLING_LEDGER.md).
@@ -84,6 +85,8 @@ Assessment levels:
 - **unverified**: a comparison or hypothesis lacks sufficient proof to assert a relationship.
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
+
+**MK13 key lifecycle:** Back up a newly generated signing key, authorize rotation using both old and new private keys, and distribute signed rotation/revocation notices. Reviewers must independently know the original public-key fingerprint; a downloaded bundle cannot grant itself trust. Older signed capsules remain cryptographically verifiable without being classified as current-key use. The app does not independently authenticate the person holding a key.
 
 **MK12 signing workflow:** Generate a locally held P-256 key, export a passphrase-encrypted backup, sign a validated MK11 capsule, and independently check the signature and trusted public-key fingerprint. No signing key is stored in Atlas browser storage or uploaded. The signed research data can still be historically false; a signature is not proof of wrongdoing or payment.
 
