@@ -31,7 +31,8 @@ export async function digestPayload(payload,subtle=globalThis.crypto?.subtle){
   const hash=await subtle.digest('SHA-256',data);
   return Array.from(new Uint8Array(hash),x=>x.toString(16).padStart(2,'0')).join('');
 }
-export function auditCase(caseFile,seed={invoices:[],entries:[]}) {
+export function auditCase(caseFile,seed) {
+  seed=seed||{invoices:[],entries:[]};
   const claims=collectClaims(caseFile);
   const sourceMap=new Map(caseFile.sources.map(s=>[s.id,{id:s.id,citation:s.citation,
     title:s.title,date:s.date,category:s.category,url:s.url,claims:[],hypotheses:[],events:[],trace:[]}]));
