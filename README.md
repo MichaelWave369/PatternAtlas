@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK6 includes
+## What MK7 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Transaction Reconciliation Lab:** compare invoices and ledger candidates field by field, never assume metadata proves payment, preserve secondary-source labels, and export private notes. [MK7 protocol](docs/TRANSACTION_RECONCILIATION.md).
 - **Document Dossiers:** curated source-pair comparisons plus private research copies, original citation links, competing interpretations, and the mandatory 'not established' section. [MK6 protocol](docs/DOCUMENT_DOSSIERS.md).
 - **Research Queue:** turns case hypotheses and claim-trace limits into concrete research tasks. Track work status, note missing records, require substantial findings for manually reviewed tasks, and export source-linked checklists. See [MK5 research protocol](docs/RESEARCH_OPERATIONS.md).
 - **Source Verification Console:** claim-by-claim inspection, manual source provenance, counterevidence with written follow-ups, case-scoped review exports, and drift detection. See [verification protocol](docs/VERIFICATION_PROTOCOL.md).
@@ -79,6 +80,8 @@ Assessment levels:
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
 
+**MK7 reconciliation workspace:** A $30,000 invoice and a *secondary-reported* April 2015 entry can be compared without treating it as a settled payment. The original ledger line has not been independently inspected. Case 002 has no invented bank transaction. USD-only, no scoring, no automatic conclusions. Research data is local until exported.
+
 **MK6 dossier workspace:** Two records can be compared without creating graph edges. Curated pairs are read-only, private copies are saved separately per case, and exports require user action. A changed source URL, citation or date invalidates old comparison metadata.
 
 **MK5 research queue:** Work status and researcher-added tasks are stored separately per case. A completed research task is not a historical conclusion. Research queue JSON and Markdown briefs can be exported. No automatic payment confirmation or remote source checking is performed.
@@ -97,6 +100,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case/research-queue/dossier schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case/research-queue/dossier/reconciliation schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.

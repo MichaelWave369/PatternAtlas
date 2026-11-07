@@ -46,3 +46,7 @@ Research Queue tasks must begin with an existing source citation. A mark of rese
 ## MK6 dossier review standards
 
 Document Dossiers must always distinguish each source's actual words from an inference that the records share a transaction. Preserve alternatives, unestablished outcomes, exact IDs and independent verification tasks. Do not automatically merge near-identical names, dollar amounts, drafts or invoices. [Read the MK6 dossier protocol](docs/DOCUMENT_DOSSIERS.md).
+
+## MK7 transaction reconciliation standards
+
+Never classify an invoice or ledger label as completed payment on metadata alone. Require independent settlement evidence and preserve incomplete invoice numbers and source-provenance conflicts. All inspection statuses are researcher-entered. See [the transaction reconciliation protocol](docs/TRANSACTION_RECONCILIATION.md).

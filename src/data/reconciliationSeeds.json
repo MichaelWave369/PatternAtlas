@@ -1,0 +1,51 @@
+[
+  {
+    "caseId": "CASE-001",
+    "invoices": [
+      {
+        "id": "seed:invoice-1501",
+        "sourceId": "doc-invoice",
+        "invoiceNo": "1501",
+        "date": "2015-02-04",
+        "amountCents": 3000000,
+        "currency": "USD",
+        "vendor": "Novamente LLC",
+        "payer": "Southern Trust Company",
+        "description": "Invoice for gene-expression and SNP analysis software plus installation and training. This document requests payment; it is not confirmation of settlement or delivery."
+      }
+    ],
+    "entries": [
+      {
+        "id": "seed:apr-2015-reported-ledger",
+        "invoiceId": "seed:invoice-1501",
+        "date": "2015-04-13",
+        "amountCents": 3000000,
+        "currency": "USD",
+        "payee": "Novamente",
+        "invoiceNoObserved": "",
+        "kind": "secondary-report",
+        "sourceId": "",
+        "url": "https://epsteinwiki.com/knowledge-base/jeffrey-epsteins-reproductive-history-hormones-genetics-fertility-treatment-and-paternity-claims/",
+        "locator": "EFTA00809214 (candidate archive locator; entry not independently inspected)",
+        "note": "A secondary research article reports a $30,000 software wire to Novamente on April 13, 2015 and links EFTA00809214. The referenced original ledger entry has not been independently verified here, and the ledger allegedly lacks invoice number 1501. An unrelated public description also associates the same EFTA identifier with ISP equipment, so locate the actual page and check its contents before drawing a payment conclusion."
+      }
+    ]
+  },
+  {
+    "caseId": "CASE-002",
+    "invoices": [
+      {
+        "id": "seed:estate-algorithms-invoice",
+        "sourceId": "source-2014-invoice",
+        "invoiceNo": "",
+        "date": "2014-07-15",
+        "amountCents": 2000000000,
+        "currency": "USD",
+        "vendor": "Southern Trust Company",
+        "payer": "Leon Black / entity unspecified in draft",
+        "description": "Document headed INVOICE describing algorithms for estate planning; the billed-entity placeholder is unfinished. The source does not establish a finalized invoice, payment, or accepted algorithmic services."
+      }
+    ],
+    "entries": []
+  }
+]
