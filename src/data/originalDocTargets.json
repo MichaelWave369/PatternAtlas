@@ -1,0 +1,32 @@
+[
+  {
+    "caseId": "CASE-001",
+    "id": "ledger",
+    "sourceId": "doc-ledger-lead",
+    "locator": "EFTA00809214",
+    "title": "Locate the original April 2015 ledger entry",
+    "url": "https://epstein-data.com/EFTA00809214",
+    "description": "An independent secondary article cites this locator for a reported $30,000 Novamente entry. The original ledger line has NOT been verified. Inspect the original pages before asserting even that the entry appears at this locator.",
+    "state": "Unverified archival locator"
+  },
+  {
+    "caseId": "CASE-002",
+    "id": "wire-original",
+    "sourceId": "source-2014-doj-wire-locator",
+    "locator": "EFTA01915809",
+    "title": "Retrieve the original July 2014 wire-receipt email",
+    "url": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01915809.pdf",
+    "description": "The Senate Finance letter reproduces a screenshot of a July 15 email and cites this DOJ PDF. Obtain the original to compare the complete headers, text and any attachments. No invoice allocation is shown in the published excerpt.",
+    "state": "Official URL cited, file not independently checked"
+  },
+  {
+    "caseId": "CASE-002",
+    "id": "pending-bank",
+    "sourceId": "source-2014-bank-inquiry",
+    "locator": "EFTA01344226",
+    "title": "Verify the earlier July 15 bank-status correspondence",
+    "url": "https://efta.threats.watch/documents/EFTA01344226",
+    "description": "An archive extraction shows the bank saying the anticipated wire had not yet arrived at 3:30 p.m. and Kahn naming the expected sender at 3:36 p.m. Retrieve the original and check timestamps, threading and full context.",
+    "state": "Archive text read, original PDF not inspected"
+  }
+]

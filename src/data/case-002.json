@@ -31,6 +31,15 @@
       "url": "https://www.finance.senate.gov/imo/media/doc/senator_wyden_letter_to_leon_black_redacted.pdf",
       "citation": "Senate Finance letter (Mar 20 2026), p. 3; cites EFTA01915809",
       "note": "A letter from Senator Ron Wyden includes an embedded image of July 15, 2014 correspondence. In that image Richard Kahn reports a $20 million wire received in Southern Trust Company. The letter points to DOJ EFTA01915809. The DOJ original was not independently retrieved here. The email does not identify the July 2014 algorithm invoice, show bank settlement documents, or establish algorithm delivery."
+    },
+    {
+      "id": "source-2014-doj-wire-locator",
+      "title": "DOJ original PDF locator for July 2014 reported receipt email",
+      "date": "2014-07-15",
+      "category": "reference",
+      "url": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01915809.pdf",
+      "citation": "EFTA01915809 (DOJ locator; original not inspected)",
+      "note": "The Senate Finance letter cites this DOJ DataSet 10 PDF as the underlying document for a July 15, 2014 email reporting $20 million received by Southern Trust. The original PDF was not independently downloaded during this research; this registry item records the citation URL, not independent authentication."
     }
   ],
   "nodes": [
