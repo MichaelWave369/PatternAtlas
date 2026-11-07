@@ -1,7 +1,7 @@
 import {useMemo,useState} from 'react';
 import type {CaseFile,AtlasSource} from './types';
 import seedsRaw from './data/dossierSeeds.json';
-import {createDossier,emptyDossiers,pairFingerprint,validateDossiers} from './dossierCore.mjs';
+import {createDossier,emptyDossiers,validateDossiers} from './dossierCore.mjs';
 import {
   readDossiers,writeDossiers,clearDossiers,exportDossiers,exportDossierMemo,backupDossiers
 } from './dossierStorage';
