@@ -123,12 +123,12 @@ export default function OriginalDocumentLab({caseFile}:{caseFile:CaseFile}) {
     persist({...bundle,documents:update});
   }
   function deleteDocument() {
-    if(!selected||!window.confirm('Delete this locally saved fingerprint and all its page notes? Export a backup first.'))return;
+    if(!selected||!window.confirm('Delete this PDF fingerprint and page notes? Any dependent handling ledger will stop validating. Export both histories and the head anchor first.'))return;
     const next={...bundle,documents:bundle.documents.filter(d=>d.id!==selected.id)};
     if(persist(next)){setSelectedId(next.documents[0]?.id||'');setComparison('');}
   }
   function reset() {
-    if(!window.confirm('Permanently delete all private PDF fingerprints and page notes for this case? Export a backup first.'))return;
+    if(!window.confirm('Delete every saved PDF fingerprint and its page notes for this case? Linked handling events will become unverifiable. Export fingerprints, handling history and the independent head anchor first.'))return;
     if(!clearOriginals(caseFile)){setMessage('Browser storage could not be cleared.');return;}
     setBundle(emptyManifest(caseFile) as OriginalManifest);setLocked(false);setWarning('');
     setSelectedId('');setPending(null);setComparison('');setMessage('Private document manifest reset.');

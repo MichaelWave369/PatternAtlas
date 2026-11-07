@@ -53,3 +53,7 @@ The underlying browser file is **never uploaded to Pattern Atlas, rendered by th
 Run `npm test` and `npm run build`. New tests cover byte hashing, duplicate PDF comparison, unsafe file rejection, source-URL drift, case isolation, manifest validation and page-specific evidence limitations.
 
 **Ledger Above Ego. Evidence Above Assumption.**
+
+## MK10 companion workflow
+
+After fingerprinting an original PDF, select **Handling ledger** in the sidebar to log subsequent researcher actions. Each event references the exact saved fingerprint and source URL. Removing or changing that MK9 record may invalidate the dependent handling history; export the history and independently preserved head hash first. See [MK10 Evidence Handling Ledger](HANDLING_LEDGER.md).
