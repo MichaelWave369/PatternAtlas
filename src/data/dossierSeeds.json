@@ -1,0 +1,30 @@
+[
+  {
+    "caseId": "CASE-001",
+    "id": "published:software-server",
+    "title": "Genomics invoice versus installation correspondence",
+    "sourceA": "doc-invoice",
+    "sourceB": "doc-install",
+    "question": "Do the February 2015 software invoice and June 2015 server email establish delivery or operation?",
+    "findingA": "The February invoice requests $30,000 for analysis software and services involving gene-expression/SNP data, installation and training.",
+    "findingB": "The June email reports that software could not yet be installed remotely because router access had not been configured.",
+    "sharedContext": "Both records discuss AI-related software and infrastructure within the broader Southern Trust/Novamente research context.",
+    "notEstablished": "They do not identify a shared server asset, show invoice settlement, confirm installation, or prove that a genetic-data platform operated.",
+    "alternative": "The server may have belonged to a separate experiment or an installation attempt that never reached production.",
+    "nextCheck": "Locate vendor acceptance, server asset IDs, signed scope, delivery confirmation and independent transaction records."
+  },
+  {
+    "caseId": "CASE-002",
+    "id": "published:estate-draft-invoice",
+    "title": "2013 estate-planning draft versus 2014 algorithms invoice",
+    "sourceA": "source-2013-draft",
+    "sourceB": "source-2014-invoice",
+    "question": "Did the 2013 draft and the July 2014 algorithms invoice cover the same engagement?",
+    "findingA": "A revised February 2013 draft describes conditional estate-planning fees totaling $23.5 million.",
+    "findingB": "The July 2014 invoice document describes $20 million in algorithms for estate planning and has an unfilled billed-entity placeholder.",
+    "sharedContext": "The documents name Southern Trust and Leon Black and refer to estate planning, but dates, sums and documentary form differ.",
+    "notEstablished": "An executed agreement, amendment linking these documents, settled payment or software delivery is not established.",
+    "alternative": "They may be different proposals, revised scopes, unrelated billing phases or incomplete drafts.",
+    "nextCheck": "Seek an executed agreement, amendment identifying both documents, final invoice, settlement records and accepted deliverables. Do not sum the figures."
+  }
+]

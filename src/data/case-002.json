@@ -3,7 +3,7 @@
   "title": "The 2014 Algorithm Invoice",
   "subtitle": "Southern Trust · Estate Planning · Documentary Boundaries",
   "updated": "2026-11-06",
-  "description": "A July 2014 invoice document refers to $20 million in algorithmic estate-planning services. An unfilled recipient placeholder makes it especially important to distinguish draft paperwork from a paid and delivered contract.",
+  "description": "A 2013 revised estate-planning service-letter draft and a 2014 Southern Trust algorithm invoice document are compared as separate records with overlapping counterparties. Neither establishes completed payment, software delivery or an amendment linking them.",
   "sources": [
     {
       "id": "source-2014-invoice",
@@ -13,6 +13,15 @@
       "url": "https://tommycarstensen.com/epstein/documents/EFTA00585292.html",
       "citation": "EFTA00585292",
       "note": "One-page Southern Trust invoice addressed to Leon Black, containing an unfilled bracketed entity placeholder. It describes $20 million in estate-planning-related algorithms. Does not by itself establish settlement, delivery, or actual system operation. Avoid reproducing banking details."
+    },
+    {
+      "id": "source-2013-draft",
+      "title": "Revised draft estate-planning service letter",
+      "date": "2013-02-11",
+      "category": "proposal",
+      "url": "https://efta.threats.watch/documents/EFTA01188213",
+      "citation": "EFTA01188213",
+      "note": "Archive-indexed February 11, 2013; header identifies February 6 revisions to a February 5 lawyer's draft. Draft terms describe a conditional $23.5 million estate-planning fee to Southern Trust. Does not establish execution, payment, algorithm development, or relation to the July 2014 invoice."
     }
   ],
   "nodes": [
@@ -79,6 +88,16 @@
   ],
   "events": [
     {
+      "id": "t0",
+      "date": "2013-02-11",
+      "title": "Revised estate-planning service letter appears in released records",
+      "description": "Draft dated February 2013 describes conditional $23.5 million fee terms. Archive index date is not proof of signing; the draft is not itself a payment record.",
+      "assessment": "documented",
+      "sourceIds": [
+        "source-2013-draft"
+      ]
+    },
+    {
       "id": "t1",
       "date": "2014-07-15",
       "title": "Southern Trust invoice document references algorithms",
@@ -100,9 +119,32 @@
       "sourceIds": [
         "source-2014-invoice"
       ]
+    },
+    {
+      "id": "h2",
+      "question": "Did the 2013 draft and 2014 algorithm invoice refer to the same engagement?",
+      "context": "Both name Southern Trust and Leon Black in an estate-planning context, but their amounts, dates and documentary forms differ.",
+      "forEvidence": "The same broad counterparties and estate-planning subject occur in a 2013 draft and a 2014 invoice document.",
+      "againstEvidence": "A revised unsigned draft cannot establish a finalized 2013 contract, and the 2014 invoice retains an unfinished entity placeholder. No explicit amendment or cross-reference has been identified.",
+      "nextCheck": "Find a fully executed agreement, amendment, final invoice and payment records explicitly linking the terms. Do not add their dollar amounts together.",
+      "sourceIds": [
+        "source-2013-draft",
+        "source-2014-invoice"
+      ]
     }
   ],
   "traceSteps": [
+    {
+      "id": "tr0",
+      "date": "2013-02-11",
+      "stage": "draft",
+      "title": "A revised estate-planning draft proposed conditional fees",
+      "established": "A draft service letter identifies Southern Trust and Leon Black, with conditional estate-planning fees totaling $23.5 million. The archive indexes it February 11, 2013, while the header identifies February 6 revisions.",
+      "notEstablished": "Whether the draft was executed, any money was settled, software was produced, or it constituted the same agreement as the July 2014 algorithms invoice.",
+      "sourceIds": [
+        "source-2013-draft"
+      ]
+    },
     {
       "id": "tr1",
       "date": "2014-07-15",
