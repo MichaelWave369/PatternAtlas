@@ -42,3 +42,7 @@ The seed dataset was assembled from public references discussed during initial r
 ## MK5 research task standards
 
 Research Queue tasks must begin with an existing source citation. A mark of research reviewed means the investigator recorded a substantial note and evidence pointer. It does not mean the claim is historically proven. Do not treat secondary summaries of bank ledger entries as original settled transactions. See [Research Operations Protocol](docs/RESEARCH_OPERATIONS.md).
+
+## MK6 dossier review standards
+
+Document Dossiers must always distinguish each source's actual words from an inference that the records share a transaction. Preserve alternatives, unestablished outcomes, exact IDs and independent verification tasks. Do not automatically merge near-identical names, dollar amounts, drafts or invoices. [Read the MK6 dossier protocol](docs/DOCUMENT_DOSSIERS.md).

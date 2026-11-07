@@ -100,7 +100,7 @@ test('source usage and Markdown export preserve caveats',()=>{
   assert.ok(fingerprint('first')!==fingerprint('second'));
 });
 test('review records never turn proposals into payments in the source dataset',()=>{
-  const c=case2.traceSteps[0];
+  const c=case2.traceSteps.find((s)=>s.id==='tr1');
   assert.match(c.notEstablished,/paid/);
   const report=makeReviewReport(createBundle(case2),case2);
   assert.match(report,/Whether the document was final, paid, or linked to delivered algorithmic services/i);

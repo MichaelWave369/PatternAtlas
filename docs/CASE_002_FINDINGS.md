@@ -26,3 +26,11 @@ The February 2015 Novamente **$30,000** genetics software invoice in Case 001 de
 Pattern Atlas records the source and the limitation, not an assertion of wrongdoing.
 
 Do not reproduce any banking identifiers from source images.
+
+## MK6 companion record: EFTA01188213
+
+A source in the February 2013 Southern Trust / Leon Black estate-planning correspondence is archived as [EFTA01188213](https://efta.threats.watch/documents/EFTA01188213). It describes a **revised draft**, not an established executed agreement, with conditional fees totaling **$23.5 million**. The archive indexes it on February 11, 2013; its header identifies February 6 revisions to a February 5 draft.
+
+This is **not** the same document as the July 15, 2014 **$20 million** algorithms invoice. Shared names and broad subject matter warrant comparison, but **not summing the dollar figures or asserting that one contract became the other**. The relevant original agreement, amendments, payment records and deliverables remain open questions.
+
+The curated MK6 Document Dossier compares these records without adding any new graph relationship or inferring wrongdoing. [See the protocol](DOCUMENT_DOSSIERS.md).

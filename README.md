@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK5 includes
+## What MK6 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Document Dossiers:** curated source-pair comparisons plus private research copies, original citation links, competing interpretations, and the mandatory 'not established' section. [MK6 protocol](docs/DOCUMENT_DOSSIERS.md).
 - **Research Queue:** turns case hypotheses and claim-trace limits into concrete research tasks. Track work status, note missing records, require substantial findings for manually reviewed tasks, and export source-linked checklists. See [MK5 research protocol](docs/RESEARCH_OPERATIONS.md).
 - **Source Verification Console:** claim-by-claim inspection, manual source provenance, counterevidence with written follow-ups, case-scoped review exports, and drift detection. See [verification protocol](docs/VERIFICATION_PROTOCOL.md).
 - **Schema validation:** HTTPS links, finite coordinates, safe identifiers, unique IDs and existing source references are enforced on imports and saves. Validation does not make a claim true.
@@ -26,7 +27,7 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 ### Curated cases
 
 - **Case 001:** A 2012 proposed informatics business, OpenCog, Novamente, Southern Trust Company, a February 2015 genomics software invoice, unsuccessful June remote installation, and contested 2023 litigation positions.
-- **Case 002:** A separate July 15, 2014 Southern Trust invoice document describing $20 million in estate-planning algorithms addressed to Leon Black. The document contains an unfilled recipient placeholder. It does not establish a settled payment or delivered technology.
+- **Case 002:** A February 2013 revised estate-planning service-letter draft is now compared with a separate July 15, 2014 Southern Trust invoice document describing $20 million in estate-planning algorithms addressed to Leon Black. The 2014 invoice contains an unfilled recipient placeholder. The 2013 draft's $23.5 million conditional fees and the 2014 invoice's $20 million are separate amounts in separate documents; no executed amendment, settled payment or delivered technology is established.
 
 None of these documents alone proves a commercial system was operational. The Oval Office three-loop motif remains in Case 001's disconnected comparison cluster. No visual or financial connection between the ornament and the research network is claimed.
 
@@ -78,6 +79,8 @@ Assessment levels:
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
 
+**MK6 dossier workspace:** Two records can be compared without creating graph edges. Curated pairs are read-only, private copies are saved separately per case, and exports require user action. A changed source URL, citation or date invalidates old comparison metadata.
+
 **MK5 research queue:** Work status and researcher-added tasks are stored separately per case. A completed research task is not a historical conclusion. Research queue JSON and Markdown briefs can be exported. No automatic payment confirmation or remote source checking is performed.
 
 **MK4 verification records:** Saved separately by case ID in local browser storage; export/import JSON or download a Markdown memo. Inspection is not factual verification. A changed claim or source URL invalidates old review records. No automated scraping or remote authentication is performed.
@@ -94,6 +97,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case and research-queue schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case/research-queue/dossier schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.

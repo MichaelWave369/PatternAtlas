@@ -60,8 +60,8 @@ test('all trace milestones include what is and is not established',()=>{
 });
 test('2014 invoice document is not treated as a completed payment',()=>{
   const doc=good();
-  assert.equal(doc.sources.length,1);
+  assert.equal(doc.sources.length,2);
   assert.match(doc.sources[0].note,/not.*settlement|does not.*settlement/i);
-  assert.match(doc.traceSteps[0].notEstablished,/paid/i);
+  assert.match(doc.traceSteps.find((s)=>s.id==='tr1').notEstablished,/paid/i);
   assert.equal(doc.edges[0].label,'named invoice addressee');
 });
