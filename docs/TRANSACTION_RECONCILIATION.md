@@ -22,7 +22,7 @@ Verification priorities: inspect the relevant original page of EFTA00809214; com
 
 ## Case 002: estate-planning invoice
 
-[EFTA00585292](https://yirah.fi/epstein/en/document/EFTA00585292) is a July 15, 2014 invoice-form document addressed to Leon Black with an unfinished recipient-entity placeholder, describing $20 million in algorithms. MK7 includes **no synthetic corresponding payment**.
+[EFTA00585292](https://yirah.fi/epstein/en/document/EFTA00585292) is a July 15, 2014 invoice-form document addressed to Leon Black with an unfinished recipient-entity placeholder, describing $20 million in algorithms. MK7 initially included **no synthetic corresponding payment**. MK8 now adds a Senate-sourced **correspondence candidate**: a March 2026 letter reproduces a July 15, 2014 email reporting a $20 million wire received in Southern Trust. This is not an original bank record, does not provide invoice allocation, and is not proof of algorithm delivery.
 
 The February 2013 draft describing $23.5 million in conditional estate-planning fees is a separate document. Its amount must not be added to the 2014 invoice or treated as a settled transfer.
 

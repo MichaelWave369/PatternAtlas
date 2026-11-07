@@ -46,6 +46,21 @@
         "description": "Document headed INVOICE describing algorithms for estate planning; the billed-entity placeholder is unfinished. The source does not establish a finalized invoice, payment, or accepted algorithmic services."
       }
     ],
-    "entries": []
+    "entries": [
+      {
+        "id": "seed:reported-2014-wire-email",
+        "invoiceId": "seed:estate-algorithms-invoice",
+        "date": "2014-07-15",
+        "amountCents": 2000000000,
+        "currency": "USD",
+        "payee": "Southern Trust Company",
+        "invoiceNoObserved": "",
+        "kind": "correspondence",
+        "sourceId": "source-2026-senate-wire",
+        "url": "https://www.finance.senate.gov/imo/media/doc/senator_wyden_letter_to_leon_black_redacted.pdf",
+        "locator": "Senate Finance letter (Mar 20 2026), page 3; email DOJ locator EFTA01915809",
+        "note": "The official Senate letter reproduces an email image reporting that a $20 million wire was received in STC on July 15, 2014. The original DOJ document was not independently fetched; the excerpt contains no invoice number or allocation to the July 2014 algorithms document. Classify this as correspondence reporting receipt, not a bank statement or accepted technology delivery."
+      }
+    ]
   }
 ]
