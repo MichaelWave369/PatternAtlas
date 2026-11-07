@@ -103,7 +103,7 @@ test('review records never turn proposals into payments in the source dataset',(
   const c=case2.traceSteps[0];
   assert.match(c.notEstablished,/paid/);
   const report=makeReviewReport(createBundle(case2),case2);
-  assert.match(report,/not.*paid/i);
+  assert.match(report,/Whether the document was final, paid, or linked to delivered algorithmic services/i);
 });
 
 test('a challenge cannot be addressed without an explicit resolution note',()=>{
