@@ -3,6 +3,7 @@ import type { PointerEvent as ReactPointerEvent } from 'react';
 import rawCase from './data/case-001.json';
 import rawCase2 from './data/case-002.json';
 import CaseStudio from './CaseStudio';
+import VerificationConsole from './VerificationConsole';
 import { loadLocalCases, saveLocalCases, newCaseId } from './localCases';
 import ClaimTrace from './ClaimTrace';
 import PatternLab from './PatternLab';
@@ -13,6 +14,7 @@ const publishedCases = [rawCase as unknown as CaseFile, rawCase2 as unknown as C
 const PAGES: Array<{ id: Page; label: string; glyph: string }> = [
   { id: 'explore', label: 'Connection map', glyph: '◎' },
   { id: 'studio', label: 'Case studio', glyph: '⊞' },
+  { id: 'verify', label: 'Source verification', glyph: '✓' },
   { id: 'trace', label: 'Claim trace', glyph: '↣' },
   { id: 'timeline', label: 'Chronology', glyph: '◷' },
   { id: 'evidence', label: 'Evidence ledger', glyph: '▤' },
@@ -313,7 +315,7 @@ function App() {
       <nav aria-label="Primary navigation" className="nav-list">{PAGES.map((item) => <button key={item.id} className={'nav-link' + (page === item.id ? ' active' : '')} onClick={() => { setPage(item.id); setMenuOpen(false); }}><span className="nav-glyph">{item.glyph}</span>{item.label}{page === item.id && <span className="active-caret">›</span>}</button>)}</nav>
       <div className="sidebar-spacer" />
       <div className="sidebar-brief"><div className="brief-dot" /> <span>CASE FILE OPEN</span><strong>{caseFile.id} / {caseFile.title}</strong><p>Claims separated from hypotheses. Connections anchored to source records.</p></div>
-      <div className="sidebar-bottom"><span className="side-version">ATLAS MK3 · v0.3.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      <div className="sidebar-bottom"><span className="side-version">ATLAS MK4 · v0.4.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
     </aside>
     {menuOpen && <button aria-label="Close navigation" className="mobile-scrim" onClick={() => setMenuOpen(false)} />}
     <div className="main-area">
@@ -329,7 +331,7 @@ function App() {
         <div className="workspace-grid"><GraphView caseFile={caseFile} visible={visible} selected={selected} onSelect={setSelected} zoom={zoom} onZoom={setZoom} pan={pan} onPan={setPan}/><Inspector caseFile={caseFile} selected={selected}/></div>
         <div className="editorial-foot"><span className="editorial-rule">EDITORIAL SAFEGUARD</span><p>These links describe records and narrowly scoped relationships, not wrongdoing or shared motives. {caseFile.id==='CASE-001'?'The architectural comparison remains disconnected from the scientific funding network.':'Only source-supported links are displayed; invoice documents never prove payment or delivery on their own.'}</p></div>
       </div> : page === 'studio' ? <CaseStudio key={caseFile.id} caseFile={caseFile} isEditable={isEditable}
-        onCreate={createCase} onFork={forkCase} onSave={saveCase} onRemove={deleteCase} onImport={importCase} /> : page === 'trace' ? <ClaimTrace caseFile={caseFile} /> : page === 'timeline' ? <Timeline caseFile={caseFile} search={search} /> : page === 'evidence' ? <Evidence caseFile={caseFile} search={search} /> : page === 'patterns' ? <PatternLab /> : page === 'hypotheses' ? <Hypotheses caseFile={caseFile} search={search} /> : <Method />}
+        onCreate={createCase} onFork={forkCase} onSave={saveCase} onRemove={deleteCase} onImport={importCase} /> : page === 'verify' ? <VerificationConsole key={caseFile.id} caseFile={caseFile} /> : page === 'trace' ? <ClaimTrace caseFile={caseFile} /> : page === 'timeline' ? <Timeline caseFile={caseFile} search={search} /> : page === 'evidence' ? <Evidence caseFile={caseFile} search={search} /> : page === 'patterns' ? <PatternLab /> : page === 'hypotheses' ? <Hypotheses caseFile={caseFile} search={search} /> : <Method />}
       <footer className="site-footer"><span>© 2026 Φ Pattern Atlas · MIT Open Source</span><span>LEDGER ABOVE EGO · EVIDENCE ABOVE ASSUMPTION</span></footer>
     </div>
   </div>;
