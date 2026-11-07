@@ -1,0 +1,118 @@
+{
+  "id": "CASE-002",
+  "title": "The 2014 Algorithm Invoice",
+  "subtitle": "Southern Trust · Estate Planning · Documentary Boundaries",
+  "updated": "2026-11-06",
+  "description": "A July 2014 invoice document refers to $20 million in algorithmic estate-planning services. An unfilled recipient placeholder makes it especially important to distinguish draft paperwork from a paid and delivered contract.",
+  "sources": [
+    {
+      "id": "source-2014-invoice",
+      "title": "Southern Trust algorithms invoice document",
+      "date": "2014-07-15",
+      "category": "invoice",
+      "url": "https://tommycarstensen.com/epstein/documents/EFTA00585292.html",
+      "citation": "EFTA00585292",
+      "note": "One-page Southern Trust invoice addressed to Leon Black, containing an unfilled bracketed entity placeholder. It describes $20 million in estate-planning-related algorithms. Does not by itself establish settlement, delivery, or actual system operation. Avoid reproducing banking details."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "stc",
+      "name": "Southern Trust Company",
+      "short": "ST",
+      "kind": "organization",
+      "x": 275,
+      "y": 250,
+      "description": "Issuer shown on a July 2014 document describing algorithm services for estate planning.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    },
+    {
+      "id": "black",
+      "name": "Leon Black",
+      "short": "LB",
+      "kind": "person",
+      "x": 740,
+      "y": 155,
+      "description": "Named as the addressee on a July 2014 invoice document. This document does not independently establish payment.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    },
+    {
+      "id": "algo",
+      "name": "Estate-planning algorithms",
+      "short": "ALG",
+      "kind": "artifact",
+      "x": 735,
+      "y": 440,
+      "description": "Services described in the invoice. No proof of code delivery, intellectual property transfer or operational deployment is contained in this record.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "from": "stc",
+      "to": "black",
+      "label": "named invoice addressee",
+      "assessment": "documented",
+      "summary": "The Southern Trust invoice document names Leon Black as the addressee and contains a placeholder for which Black entity would be invoiced. This is not a verified completed payment.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    },
+    {
+      "id": "e2",
+      "from": "stc",
+      "to": "algo",
+      "label": "services described in invoice",
+      "assessment": "documented",
+      "summary": "The document describes a $20 million fee for algorithms for estate planning and related purposes. This is a description of a claimed service, not evidence of software delivery.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "t1",
+      "date": "2014-07-15",
+      "title": "Southern Trust invoice document references algorithms",
+      "description": "A one-page record describes $20 million in algorithms for estate planning. An unfilled placeholder appears in the recipient field; settlement and delivery are unverified.",
+      "assessment": "documented",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "h1",
+      "question": "Was the stated algorithm service actually delivered or paid for?",
+      "context": "The document identifies an amount and a broad service description but does not show implementation or payment.",
+      "forEvidence": "An invoice document exists identifying parties and a service category.",
+      "againstEvidence": "A bracketed placeholder and lack of payment confirmation, agreement scope, code records, or delivery acceptance prevent a definitive operational conclusion.",
+      "nextCheck": "Locate the signed agreement, final recipient entity, invoice settlement record, work product, and independent service delivery evidence.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    }
+  ],
+  "traceSteps": [
+    {
+      "id": "tr1",
+      "date": "2014-07-15",
+      "stage": "invoiced",
+      "title": "A $20 million invoice document is dated July 15, 2014",
+      "established": "Southern Trust produced a document addressed to Leon Black describing algorithms for estate planning and related purposes.",
+      "notEstablished": "Whether the document was final, paid, or linked to delivered algorithmic services.",
+      "sourceIds": [
+        "source-2014-invoice"
+      ]
+    }
+  ]
+}

@@ -356,3 +356,72 @@ a { color: inherit; }
   .pattern-notes-row {grid-template-columns:1fr;}
   .notebook-header {flex-direction:column; align-items:start; gap:12px;}
 }
+
+
+/* MK3 · Case Studio */
+.case-picker-label {display:flex; flex-direction:column; gap:3px; color:#66bfb8; font:700 9px Consolas,monospace; letter-spacing:1px;}
+.case-picker-label select {min-width:165px; max-width:218px; color:#d5eae7; background:#112a32; border:1px solid #3b6269; border-radius:6px; padding:7px; overflow:hidden; text-overflow:ellipsis; font:11px Inter,"Segoe UI",sans-serif;}
+.storage-warning {border:1px solid #a76b54; border-left:4px solid #dda17d; background:#312624; color:#e8c3a6; padding:14px 30px; font-size:12px; line-height:1.6;}
+.studio-action-grid {display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:28px 0 22px;}
+.studio-panel {border:1px solid #2f4e58; border-radius:10px; background:linear-gradient(140deg,#0e2832,#0a1c25); padding:23px;}
+.studio-panel h2 {font-size:20px; letter-spacing:-.5px; margin:12px 0;}
+.studio-panel p {font-size:12px; color:#93acb6; line-height:1.7;}
+.studio-field {display:flex; flex-direction:column; gap:8px; min-width:0; color:#9fb6bd; font-size:11px; margin:15px 0;}
+.studio-field input,.studio-field select,.studio-field textarea,.studio-metadata-fields input,.studio-metadata-fields textarea {background:#0a1c26; border:1px solid #3a5660; border-radius:6px; color:#e5efed; font:12px "Segoe UI",sans-serif; padding:11px 12px; width:100%; min-width:0;}
+.studio-field textarea,.studio-metadata-fields textarea {resize:vertical; line-height:1.6;}
+.studio-field input:focus-visible,.studio-field select:focus-visible,.studio-field textarea:focus-visible {border-color:#58b9ae; outline:2px solid #58b9ae88;}
+.studio-primary,.studio-actions button,.studio-upload,.studio-metadata button,.studio-record button {border:1px solid #478c81; border-radius:5px; background:#16423e; color:#91eddb; padding:10px 13px; font-size:12px; font-weight:600; cursor:pointer;}
+.studio-primary:disabled {opacity:.45; cursor:not-allowed;}
+.studio-actions {display:flex; gap:10px; flex-wrap:wrap; margin-top:25px; align-items:center;}
+.studio-actions button:not(.studio-primary),.studio-upload {background:#112c35; color:#c0dedb; border-color:#48656c;}
+.studio-actions .studio-danger,.studio-record button {background:#33272a; color:#e0b9af; border-color:#6e5050;}
+.studio-upload input {display:none;}
+.studio-message {color:#e2ca97; border-left:3px solid #b49c72; background:#20262a; font-size:12px; padding:13px; line-height:1.6;}
+.studio-metadata {margin-bottom:22px; border-bottom:1px solid #29454e; padding-bottom:15px;}
+.studio-metadata > button {background:transparent; border:1px solid #395963; color:#9dc7c3;}
+.studio-metadata-fields {max-width:800px; padding-top:13px; display:grid; gap:12px;}
+.studio-metadata-fields label {display:flex; flex-direction:column; gap:6px; font-size:11px; color:#91b1bb;}
+.studio-editor-head {display:flex; justify-content:space-between; align-items:end; gap:20px; margin:25px 0 17px;}
+.studio-editor-head h2 {font-size:23px; margin:8px 0 0;}
+.studio-editor-head span {font:11px Consolas,monospace; color:#8db0b7;}
+.studio-tabs {display:flex; flex-wrap:wrap; border:1px solid #334c56; border-radius:7px; overflow:hidden; margin:0 0 16px; background:#10232d;}
+.studio-tabs button {flex:1; min-width:107px; background:transparent; border:0; border-right:1px solid #29454e; padding:13px 10px; color:#a3bdc2; font-size:12px;}
+.studio-tabs button:last-child {border-right:0;}
+.studio-tabs button:hover {background:#19333b;}
+.studio-tabs button.active {background:#19463f; color:#78ddce; box-shadow:inset 0 -2px 0 #54c9b5;}
+.studio-form {border:1px solid #34515b; background:#0e222c; border-radius:8px; padding:22px;}
+.studio-form-head {display:flex; gap:15px; justify-content:space-between; align-items:center; border-bottom:1px solid #304b55; padding-bottom:15px;}
+.studio-form-head strong {color:#e7efeb; font-size:16px; text-transform:capitalize;}
+.studio-form-head span {color:#8aa4ad; font-size:11px;}
+.studio-fields {display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:16px;}
+.studio-save-row {display:flex; align-items:center; gap:18px; flex-wrap:wrap; padding-top:18px; border-top:1px solid #2d4751;}
+.studio-save-row > span {color:#819fa6; font-size:11px;}
+.studio-records {border:1px solid #314e58; border-radius:8px; background:#0c1e27; margin-top:18px; padding:19px;}
+.studio-records h3 {font-size:17px; margin:0 0 14px;}
+.studio-records h3 span {color:#6ac5b9; font-family:Consolas,monospace; font-size:12px;}
+.studio-record {border-top:1px solid #2a4650; padding:14px 0; display:flex; justify-content:space-between; align-items:center; gap:15px;}
+.studio-record strong {font-size:13px; font-weight:600; overflow-wrap:anywhere;}
+.studio-record small {display:block; color:#7e9ca7; font:10px Consolas,monospace; margin-top:5px;}
+.studio-record button {font-size:11px; padding:8px 11px; flex-shrink:0;}
+.studio-caution {margin-top:20px; background:#21272a; border-left:3px solid #b99a66; padding:15px; color:#9baeb4; font-size:12px; line-height:1.75;}
+.studio-caution strong {color:#e5bc86;}
+@media(max-width:1150px){
+ .case-picker-label select {max-width:150px;min-width:115px;}
+ .studio-action-grid {grid-template-columns:1fr;}
+}
+@media(max-width:800px){
+ .studio-fields {grid-template-columns:1fr;}
+ .studio-form-head,.studio-editor-head {align-items:start;flex-direction:column;}
+ .studio-tabs button {min-width:100px;}
+ .case-picker-label select {max-width:150px;}
+ .top-actions {gap:8px;}
+ .search-box {min-width:120px; width:145px;}
+}
+@media(max-width:520px){
+ .case-picker-label select {min-width:0;width:100px;}
+ .search-box {min-width:0;width:100px;padding:0 6px;}
+ .topbar {padding:0 12px;}
+ .studio-form,.studio-panel {padding:15px;}
+ .studio-tabs {display:grid;grid-template-columns:1fr 1fr;}
+ .studio-tabs button {border-bottom:1px solid #29454e;}
+}

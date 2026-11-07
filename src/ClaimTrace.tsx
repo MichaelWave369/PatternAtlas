@@ -1,14 +1,7 @@
 import { useState } from 'react';
 import type { CaseFile, AtlasTraceStep, AtlasSource } from './types';
 
-type YearFilter = 'all' | '2012' | '2015' | '2023';
 const sequence = ['Proposed', 'Requested', 'Invoiced', 'Paid?', 'Delivered?', 'Operated?'];
-const stages: Array<{ value: YearFilter; label: string }> = [
-  { value: 'all', label: 'All records' },
-  { value: '2012', label: '2012 · Proposal' },
-  { value: '2015', label: '2015 · Software' },
-  { value: '2023', label: '2023 · Litigation' },
-];
 
 function LinkedSources({ ids, index }: { ids: string[]; index: Map<string, AtlasSource> }) {
   return <div className="trace-sources">{ids.map((id) => {
@@ -33,7 +26,9 @@ function Step({ step, index }: { step: AtlasTraceStep; index: Map<string, AtlasS
 }
 
 export default function ClaimTrace({ caseFile }: { caseFile: CaseFile }) {
-  const [filter, setFilter] = useState<YearFilter>('all');
+  const [filter, setFilter] = useState('all');
+  const years = [...new Set(caseFile.traceSteps.map((step)=>step.date.slice(0,4)))].sort();
+  const stages=[{value:'all',label:'All records'}, ...years.map((year)=>({value:year,label:year}))];
   const index = new Map(caseFile.sources.map((source) => [source.id, source]));
   const steps = caseFile.traceSteps
     .filter((item) => filter === 'all' || item.date.startsWith(filter))
@@ -42,10 +37,10 @@ export default function ClaimTrace({ caseFile }: { caseFile: CaseFile }) {
     <div className="eyebrow">CASE {caseFile.id.replace('CASE-', '')} / EVIDENCE SEQUENCE</div>
     <h1 className="trace-page-title">From proposal to proof.</h1>
     <p className="trace-deck">Documents can establish conversations, invoices, and unsuccessful installation attempts without establishing a functioning system. Inspect the transitions without skipping stages.</p>
-    <div className="claim-ladder" aria-label="Evidence maturity ladder">
+    {caseFile.id==='CASE-001'&&<div className="claim-ladder" aria-label="Evidence maturity ladder">
       {sequence.map((label, i) => <div key={label} className={'claim-ladder-step' + (i < 3 ? ' supported' : ' unresolved')}><span>{String(i + 1).padStart(2, '0')}</span><strong>{label}</strong>{i < sequence.length - 1 && <b aria-hidden="true">›</b>}</div>)}
-    </div>
-    <p className="trace-warning"><strong>Reading the ladder:</strong> The first three categories have documentary examples. No verified completion of payment, delivery, or operation is established by this particular evidence sequence. A later source could change that finding.</p>
+    </div>}
+    <p className="trace-warning"><strong>Reading the ladder:</strong> {caseFile.id==='CASE-001'?'The first three categories have documentary examples. This record does not independently establish completed payment, delivery, or operation.':'A document, invoice, or proposal does not on its own establish a settled transaction, delivered work product or deployed system.'} A later source could change that finding.</p>
     <div className="trace-filter">
       <div><div className="eyebrow">DOCUMENT-BY-DOCUMENT</div><h2>{steps.length} tracked milestones</h2></div>
       <div className="trace-year-buttons" role="group" aria-label="Filter claim trace by year">
@@ -53,6 +48,7 @@ export default function ClaimTrace({ caseFile }: { caseFile: CaseFile }) {
       </div>
     </div>
     <div className="trace-list">{steps.map((step) => <Step key={step.id} step={step} index={index} />)}</div>
-    <div className="trace-bottom"><strong>The active research question:</strong> Did Southern Trust ever operate the DNA-analysis platform described in its 2012 business plan? We need actual transaction, deployment, asset and dataset records to answer. The USVI government's 2023 claims and the JPMorgan-retained expert's report are positions in litigation, not shortcuts to a finding.</div>
+    {steps.length===0&&<div className="empty-state">No documented claim milestones in this case yet. Add one in Case Studio.</div>}
+    <div className="trace-bottom"><strong>Verification reminder:</strong> An invoice, meeting or proposal is not proof of payment, delivery, control or wrongdoing. Every milestone explicitly states its limits. Investigate contrary evidence as well as supporting material.</div>
   </section>;
 }

@@ -18,11 +18,13 @@ function cleanNotes(value: unknown, validSourceIds: Set<string>): Notes {
   return result;
 }
 
-export default function ResearchNotebook({ sources }: { sources: AtlasSource[] }) {
+export default function ResearchNotebook({ sources, caseId }: { sources: AtlasSource[]; caseId: string }) {
+  // Preserve existing MK2 notes for CASE-001 without migration or overwrite.
+  const storageKey = caseId === 'CASE-001' ? KEY : KEY + '.' + caseId;
   const known = new Set(sources.map((source) => source.id));
   const [notes, setNotes] = useState<Notes>(() => {
     try {
-      const raw = window.localStorage.getItem(KEY);
+      const raw = window.localStorage.getItem(storageKey);
       if (!raw || raw.length > MAX_NOTES_BYTES) return {};
       return cleanNotes(JSON.parse(raw), known);
     } catch { return {}; }
@@ -31,16 +33,16 @@ export default function ResearchNotebook({ sources }: { sources: AtlasSource[] }
   const [status, setStatus] = useState('');
   const [show, setShow] = useState(false);
   useEffect(() => {
-    try { window.localStorage.setItem(KEY, JSON.stringify(notes)); }
+    try { window.localStorage.setItem(storageKey, JSON.stringify(notes)); }
     catch { setStatus('Browser storage is unavailable or full. Export your notes to keep them.'); }
-  }, [notes]);
+  }, [notes, storageKey]);
   const current = notes[selected]?.text ?? '';
   function save(text: string) {
     setNotes((previous) => ({ ...previous, [selected]: { text: text.slice(0, 4000), updatedAt: new Date().toISOString() } }));
     setStatus('Saved locally in this browser.');
   }
   function download() {
-    const content = JSON.stringify({ format: 'pattern-atlas-notes-v1', case: 'CASE-001', exportedAt: new Date().toISOString(), notes }, null, 2);
+    const content = JSON.stringify({ format: 'pattern-atlas-notes-v1', case: caseId, exportedAt: new Date().toISOString(), notes }, null, 2);
     const blob = new Blob([content], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -54,7 +56,7 @@ export default function ResearchNotebook({ sources }: { sources: AtlasSource[] }
     if (file.size > MAX_NOTES_BYTES) { setStatus('File too large. Maximum 256 KB.'); return; }
     try {
       const parsed = JSON.parse(await file.text()) as Record<string, unknown>;
-      if (parsed.format !== 'pattern-atlas-notes-v1') throw new Error('Unsupported notebook format');
+      if (parsed.format !== 'pattern-atlas-notes-v1' || parsed.case !== caseId) throw new Error('Notebook belongs to a different case');
       const incoming = cleanNotes(parsed.notes, known);
       setNotes((previous) => ({ ...previous, ...incoming }));
       setStatus('Imported ' + Object.keys(incoming).length + ' source notes to this browser.');

@@ -12,3 +12,5 @@ The source-controlled case JSON is an editorial record, not an inferred relation
 - Keep the motif/artifact comparison cluster disconnected from the funding/research cluster unless independently established provenance justifies a link.
 
 Expand to additional case files and a case picker rather than mixing unrelated research into one graph.
+
+MK3 adds `case-002.json` and the private Case Studio. Imported and locally saved cases are checked by `src/caseValidation.mjs`: unique IDs, valid dates, HTTPS URLs, known relationships and source citations. A structural check is not a substitute for primary-source review. Local drafts do not go to GitHub until explicitly exported and submitted.
