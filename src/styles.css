@@ -1014,3 +1014,47 @@ a { color: inherit; }
 @media(max-width:1030px){.capsule-workspace{grid-template-columns:1fr}}
 @media(max-width:700px){.capsule-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.capsule-stats>div:nth-child(2){border-right:0}.capsule-stats>div:nth-child(-n+2){border-bottom:1px solid #36565f}}
 @media(max-width:520px){.capsule-builder,.capsule-checker{padding:16px}.capsule-scope>div:not(.eyebrow){flex-direction:column;gap:5px}.capsule-scope strong{max-width:100%;text-align:left}}
+
+
+/* MK12 · researcher-controlled crypto signatures; no automatic identity trust */
+.signing-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#102b35;border:1px solid #35575f;border-radius:8px;margin:24px 0 18px;overflow:hidden}
+.signing-stats>div{display:flex;flex-direction:column;gap:9px;padding:19px 15px;border-right:1px solid #35575f;min-width:0}
+.signing-stats>div:last-child{border-right:0}
+.signing-stats strong{font:700 clamp(11px,1.45vw,18px) "Segoe UI",system-ui,sans-serif;color:#d8f3e8;overflow-wrap:anywhere}
+.signing-stats span{font:700 9px Consolas,monospace;letter-spacing:.65px;color:#86acb1;line-height:1.5}
+.signing-layout{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.signing-workspace,.signing-verifier{padding:22px;background:#102a33;border:1px solid #365a61;border-radius:9px;min-width:0}
+.signing-workspace h2,.signing-verifier h2{font-size:22px;margin:10px 0 15px;line-height:1.4}
+.signing-workspace h3{font-size:15px;color:#e3eae5;margin:15px 0 8px}
+.signing-workspace p,.signing-verifier p,.signing-help{font-size:12px;color:#9ebbbb;line-height:1.8}
+.signing-workspace>button,.signing-primary,.signing-verifier button{padding:12px 14px;border-radius:5px;border:1px solid #4f8c80;color:#b6e8db;background:#153e39;cursor:pointer;font-size:11px;font-weight:700}
+.signing-primary{border-color:#61bba9!important;background:#19594b!important;color:#e3fff1!important}
+.signing-workspace button:disabled{opacity:.45;cursor:not-allowed}
+.signing-workspace>label,.signing-verifier label:not(.signing-file){display:flex;flex-direction:column;gap:8px;margin:16px 0;color:#b9d4d0;font-size:11px}
+.signing-workspace input:not([type=file]),.signing-verifier input:not([type=file]){background:#091f29;border:1px solid #406168;color:#e0f0ea;padding:12px;border-radius:5px;min-width:0;width:100%;font-size:12px}
+.signing-fingerprint{border:1px solid #45786f;background:#133b39;border-radius:6px;padding:15px;margin:19px 0}
+.signing-fingerprint>span{display:block;color:#81d8c7;font:700 9px Consolas,monospace;margin-bottom:10px}
+.signing-fingerprint code{display:block;overflow-wrap:anywhere;word-break:break-all;font:11px Consolas,monospace;color:#d4f5e9}
+.signing-fingerprint p{margin-bottom:0}
+.signing-divider{border-top:1px solid #395861;margin:25px 0 20px}
+.signing-file{position:relative;display:block!important;background:#195145;border:1px solid #5eab9d;border-radius:5px;padding:13px 15px;margin:16px 0;text-align:center;color:#d9f7eb!important;font-weight:700;cursor:pointer;overflow:hidden}
+.signing-file.disabled{opacity:.48;cursor:not-allowed}
+.signing-file input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.signing-disclaimer,.signing-footer,.signing-warning{margin-top:20px;padding:15px 17px;background:#302c29;border-left:3px solid #c6a06d;border-radius:4px;font-size:12px;line-height:1.75;color:#d9c8ae}
+.signing-disclaimer strong,.signing-footer strong{color:#f1cd97}
+.signing-verifier{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;margin-top:18px}
+.signing-verifier-empty{display:flex;align-items:center;justify-content:center;min-height:175px;background:#132e36;border:1px dashed #44646b;border-radius:6px;text-align:center;padding:20px;color:#a1bec0;font-size:12px;line-height:1.8}
+.signing-verification{background:#173b35;border:1px solid #5a9d8b;border-left:4px solid #61c1a9;border-radius:6px;padding:16px;min-width:0}
+.signing-verification.fail{background:#382b2c;border-color:#9b6159;border-left-color:#d88675}
+.signing-verification>strong{display:block;font-size:14px;margin-bottom:14px;color:#e3f4e8}
+.signing-verification>div{border-top:1px solid #3d5a59;padding:10px 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.signing-verification span{font:700 9px Consolas,monospace;color:#9cc9bc}
+.signing-verification b{font-size:12px;color:#d0eade;overflow-wrap:anywhere}
+.signing-key-value code{font:11px Consolas,monospace;word-break:break-all;color:#a4e7d3}
+.signing-verification ul{font-size:11px;line-height:1.8;padding-left:17px;color:#f0c6b5}
+.signing-message{margin:17px 0;padding:14px 17px;background:#153c36;border-left:3px solid #69c0ab;color:#c5eadb;font-size:12px;line-height:1.8}
+.signing-warning{background:#3a2e2b}
+.signing-footer{margin-top:20px}
+@media(max-width:1030px){.signing-layout,.signing-verifier{grid-template-columns:1fr}}
+@media(max-width:730px){.signing-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.signing-stats>div:nth-child(2){border-right:0}.signing-stats>div:nth-child(-n+2){border-bottom:1px solid #35575f}}
+@media(max-width:520px){.signing-workspace,.signing-verifier{padding:16px}.signing-stats strong{font-size:13px}}
