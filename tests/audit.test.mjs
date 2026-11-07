@@ -111,7 +111,7 @@ test('Markdown export retains source citations and explicit limitations',()=>{
   assert.match(md,/EFTA00585292/);
   assert.match(md,/Still|not established|evidentiary limits/i);
   assert.match(md,/digest can detect changed bytes/i);
-  assert.match(md,/private.*excluded/i);
+  assert.match(md,/local notes.*excluded/i);
 });
 test('local empty case produces empty packet analysis without leaking unrelated sources',()=>{
   const local={id:'LOCAL-test',title:'Temporary case',subtitle:'Local',updated:'2026-11-06',
