@@ -30,3 +30,11 @@ The data integrity tests verify references and graph isolation. Reviewers must a
 ## Current limits
 
 The seed dataset was assembled from public references discussed during initial research and is not a completed archival audit. Source URLs can change, and some point to archival mirrors. Historical dates are approximate where marked. The interface is read-only; full import/export, collaborative annotation and automated evidence ingestion are future work.
+
+## MK4 review standards
+
+- Every researcher inspection is manual, never an official fact-check.
+- A source challenge is a research lead, not a finding. A written follow-up is required before closing the challenge.
+- Reviews and provenance checks are saved locally per case; export important data.
+- A source or claim edit invalidates older review entries instead of silently transferring them.
+- [Read the Source Verification Protocol](docs/VERIFICATION_PROTOCOL.md) before approving changes.

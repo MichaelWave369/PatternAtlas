@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK3 includes
+## What MK4 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Source Verification Console:** claim-by-claim inspection, manual source provenance, counterevidence with written follow-ups, case-scoped review exports, and drift detection. See [verification protocol](docs/VERIFICATION_PROTOCOL.md).
 - **Schema validation:** HTTPS links, finite coordinates, safe identifiers, unique IDs and existing source references are enforced on imports and saves. Validation does not make a claim true.
 - **Connection map:** pan, zoom, select entities or edges, filter by type and search. Click a relationship to inspect the underlying record and its scope.
 - **Claim Trace:** a sourced chronology distinguishing plans, requested invoices, actual invoices, payment questions, attempted installations and later litigation.
@@ -26,7 +27,7 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 - **Case 001:** A 2012 proposed informatics business, OpenCog, Novamente, Southern Trust Company, a February 2015 genomics software invoice, unsuccessful June remote installation, and contested 2023 litigation positions.
 - **Case 002:** A separate July 15, 2014 Southern Trust invoice document describing $20 million in estate-planning algorithms addressed to Leon Black. The document contains an unfilled recipient placeholder. It does not establish a settled payment or delivered technology.
 
-None of these documents alone proves a commercial system was operational. The Oval Office three-loop motif remains in Case 001's disconnected comparison cluster. The Oval Office three-loop ornament remains in an explicitly disconnected *comparison* cluster. No visual or financial connection between the ornament and the research network is claimed.
+None of these documents alone proves a commercial system was operational. The Oval Office three-loop motif remains in Case 001's disconnected comparison cluster. No visual or financial connection between the ornament and the research network is claimed.
 
 ### Start locally
 
@@ -54,7 +55,7 @@ Vite serves the app at the root in development and builds it with the GitHub Pag
 3. Merge the feature PR into main. The Pages workflow builds and deploys the dist folder.
 4. When GitHub Pages confirms deployment, the intended address is https://michaelwave369.github.io/PatternAtlas/.
 
-That URL is the expected destination, **not** a claim that a deployment has already succeeded.
+The site is published from GitHub Pages Actions after successful merges into main.
 
 ## Evidence data model
 
@@ -75,6 +76,8 @@ Assessment levels:
 - **unverified**: a comparison or hypothesis lacks sufficient proof to assert a relationship.
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
+
+**MK4 verification records:** Saved separately by case ID in local browser storage; export/import JSON or download a Markdown memo. Inspection is not factual verification. A changed claim or source URL invalidates old review records. No automated scraping or remote authentication is performed.
 
 **Persistence:** New cases are stored in localStorage only, with validation and a size cap. Export them before clearing browser data. Unpublished local cases do not sync between computers or browsers. Existing MK2 notes for Case 001 retain their original storage key. Other cases' notebooks are scoped by case ID, and imported notebook JSON must match the active case.
 
