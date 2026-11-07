@@ -6,18 +6,21 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK1 includes
+## What MK2 includes
 
 - **Connection map:** pan, zoom, select entities or edges, filter by type and search. Click a relationship to inspect the underlying record and its scope.
+- **Claim Trace:** a sourced chronology distinguishing plans, requested invoices, actual invoices, payment questions, attempted installations and later litigation.
 - **Chronology:** dated events, with approximate dates explicitly labeled.
 - **Evidence ledger:** source IDs, links, types and caveats; searchable and filterable.
+- **Private source notebook:** localStorage-only annotations with JSON import/export; never synced to servers.
+- **Pattern lab:** local PNG/JPEG/WebP/GIF side-by-side or opacity-overlay comparison; no image uploads and no automated identity inference.
 - **Hypothesis lab:** supporting observations, limitations/alternatives and specific verification steps.
 - **Methodology:** editorial rules against unsupported jumps from contact to control or visual similarity to affiliation.
 - **GitHub Pages deployment** and CI checks.
 
 ### First case: research and infrastructure correspondence
 
-Initial documents concern OpenCog, Novamente, Southern Trust Company, Goertzel-related correspondence, software-invoice language, and server-configuration discussion. The Oval Office three-loop ornament remains in an explicitly disconnected *comparison* cluster. No visual or financial connection between the ornament and the research network is claimed.
+Initial documents concern a 2012 proposed informatics business, OpenCog, Novamente, Southern Trust Company, related correspondence, a February 2015 software-and-services invoice, and an unsuccessful June 2015 installation attempt. Later court filings show a contested view of the company's claimed activities. None of these alone proves a commercial database was operational. The Oval Office three-loop ornament remains in an explicitly disconnected *comparison* cluster. No visual or financial connection between the ornament and the research network is claimed.
 
 ### Start locally
 
@@ -49,7 +52,7 @@ That URL is the expected destination, **not** a claim that a deployment has alre
 
 ## Evidence data model
 
-Case data lives in [src/data/case-001.json](src/data/case-001.json), independent of React components.
+Case data lives in [src/data/case-001.json](src/data/case-001.json), independent of React components. See [docs/CASE_001_FINDINGS.md](docs/CASE_001_FINDINGS.md) for evidence boundaries.
 
 | Field | Purpose |
 | --- | --- |
@@ -58,6 +61,7 @@ Case data lives in [src/data/case-001.json](src/data/case-001.json), independent
 | edges | Narrow relationship label, assessment, summary, source IDs |
 | events | Dated claims with caveats and source IDs |
 | hypotheses | Open questions, support, limits, next check |
+| traceSteps | Chronological stages explicitly separating what each source supports from what it cannot establish |
 
 Assessment levels:
 - **documented**: a linked record explicitly supports the *narrow claim stated*, not every implied conclusion.
@@ -74,6 +78,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, source-controlled JSON. No analytics, trackers, remote database or required account. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, source-controlled JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.

@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PointerEvent as ReactPointerEvent } from 'react';
 import rawCase from './data/case-001.json';
+import ClaimTrace from './ClaimTrace';
+import PatternLab from './PatternLab';
+import ResearchNotebook from './ResearchNotebook';
 import type { Assessment, AtlasEvent, AtlasSource, CaseFile, NodeKind, Page } from './types';
 
 const caseFile = rawCase as unknown as CaseFile;
@@ -8,8 +11,10 @@ const sourceIndex = new Map(caseFile.sources.map((source) => [source.id, source]
 const nodeIndex = new Map(caseFile.nodes.map((node) => [node.id, node]));
 const PAGES: Array<{ id: Page; label: string; glyph: string }> = [
   { id: 'explore', label: 'Connection map', glyph: '◎' },
+  { id: 'trace', label: 'Claim trace', glyph: '↣' },
   { id: 'timeline', label: 'Chronology', glyph: '◷' },
   { id: 'evidence', label: 'Evidence ledger', glyph: '▤' },
+  { id: 'patterns', label: 'Pattern lab', glyph: '▧' },
   { id: 'hypotheses', label: 'Hypothesis lab', glyph: '◇' },
   { id: 'method', label: 'Methodology', glyph: '≡' },
 ];
@@ -182,7 +187,7 @@ function Evidence({ search }: { search: string }) {
     (category === 'all' || source.category === category) &&
     (source.title + source.note + source.citation).toLowerCase().includes(search.toLowerCase()));
   return <section className="content-page">
-    <SectionTitle eyebrow="SOURCE REGISTRY / CASE 001" title="Every claim needs a trail." description="A research seed ledger. Source links are supplied for independent inspection; inclusion is not a certification that every interpretation has been independently audited." />
+    <SectionTitle eyebrow="SOURCE REGISTRY / CASE 001" title="Every claim needs a trail."  description="Linked documents, clearly labeled limitations, and a private source notebook. Inclusion is not certification that every interpretation has been independently audited." />
     <div className="filters-row" role="group" aria-label="Filter by document type">{['all', 'correspondence', 'proposal', 'invoice', 'reference'].map((item) => <button key={item} className={'filter-pill' + (category === item ? ' active' : '')} onClick={() => setCategory(item)}>{item}</button>)}</div>
     <div className="evidence-grid">{filtered.map((source) => <article className="evidence-card" key={source.id}>
       <div className="evidence-top"><span className="evidence-type">{source.category}</span><span className="evidence-date">{dateLabel(source.date)}</span></div>
@@ -191,6 +196,7 @@ function Evidence({ search }: { search: string }) {
       <a className="evidence-action" href={source.url} target="_blank" rel="noopener noreferrer">Inspect source ↗</a>
     </article>)}</div>
     {filtered.length === 0 && <div className="empty-state">No source records match your search.</div>}
+    <ResearchNotebook sources={caseFile.sources} />
   </section>;
 }
 function Hypotheses({ search }: { search: string }) {
@@ -252,7 +258,7 @@ function App() {
       <nav aria-label="Primary navigation" className="nav-list">{PAGES.map((item) => <button key={item.id} className={'nav-link' + (page === item.id ? ' active' : '')} onClick={() => { setPage(item.id); setMenuOpen(false); }}><span className="nav-glyph">{item.glyph}</span>{item.label}{page === item.id && <span className="active-caret">›</span>}</button>)}</nav>
       <div className="sidebar-spacer" />
       <div className="sidebar-brief"><div className="brief-dot" /> <span>CASE FILE OPEN</span><strong>001 / Research trail</strong><p>Claims separated from hypotheses. Connections anchored to source records.</p></div>
-      <div className="sidebar-bottom"><span className="side-version">ATLAS MK1 · v0.1.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+      <div className="sidebar-bottom"><span className="side-version">ATLAS MK2 · v0.2.0</span><a href="https://github.com/MichaelWave369/PatternAtlas" target="_blank" rel="noreferrer">GitHub ↗</a></div>
     </aside>
     {menuOpen && <button aria-label="Close navigation" className="mobile-scrim" onClick={() => setMenuOpen(false)} />}
     <div className="main-area">
@@ -263,7 +269,7 @@ function App() {
         <div className="graph-head"><div><div className="eyebrow">INTERACTIVE EXPLORER</div><h2>Connection network <span className="graph-head-sub">/ {caseFile.subtitle}</span></h2></div><div className="graph-toolbar"><label htmlFor="entity-type">View by type</label><select id="entity-type" value={kind} onChange={(event) => setKind(event.target.value as NodeKind | 'all')}>{FILTERS.map((filter) => <option value={filter.value} key={filter.value}>{filter.label}</option>)}</select></div></div>
         <div className="workspace-grid"><GraphView visible={visible} selected={selected} onSelect={setSelected} zoom={zoom} onZoom={setZoom} pan={pan} onPan={setPan}/><Inspector selected={selected}/></div>
         <div className="editorial-foot"><span className="editorial-rule">EDITORIAL SAFEGUARD</span><p>These links describe records and narrow relationships, not wrongdoing or shared motives. The isolated ornament comparison intentionally has no connection to the finance/research network.</p></div>
-      </div> : page === 'timeline' ? <Timeline search={search} /> : page === 'evidence' ? <Evidence search={search} /> : page === 'hypotheses' ? <Hypotheses search={search} /> : <Method />}
+      </div> : page === 'trace' ? <ClaimTrace caseFile={caseFile} /> : page === 'timeline' ? <Timeline search={search} /> : page === 'evidence' ? <Evidence search={search} /> : page === 'patterns' ? <PatternLab /> : page === 'hypotheses' ? <Hypotheses search={search} /> : <Method />}
       <footer className="site-footer"><span>© 2026 Φ Pattern Atlas · MIT Open Source</span><span>LEDGER ABOVE EGO · EVIDENCE ABOVE ASSUMPTION</span></footer>
     </div>
   </div>;

@@ -1,6 +1,6 @@
 export type NodeKind = 'person' | 'organization' | 'research' | 'institution' | 'infrastructure' | 'artifact' | 'motif';
 export type Assessment = 'documented' | 'reported' | 'unverified';
-export type Page = 'explore' | 'timeline' | 'evidence' | 'hypotheses' | 'method';
+export type Page = 'explore' | 'trace' | 'timeline' | 'evidence' | 'patterns' | 'hypotheses' | 'method';
 
 export interface AtlasSource {
   id: string;
@@ -47,6 +47,15 @@ export interface AtlasHypothesis {
   nextCheck: string;
   sourceIds: string[];
 }
+export interface AtlasTraceStep {
+  id: string;
+  date: string;
+  stage: string;
+  title: string;
+  established: string;
+  notEstablished: string;
+  sourceIds: string[];
+}
 export interface CaseFile {
   id: string;
   title: string;
@@ -57,5 +66,6 @@ export interface CaseFile {
   edges: AtlasEdge[];
   events: AtlasEvent[];
   hypotheses: AtlasHypothesis[];
+  traceSteps: AtlasTraceStep[];
   sources: AtlasSource[];
 }
