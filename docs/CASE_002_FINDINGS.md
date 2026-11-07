@@ -34,3 +34,13 @@ A source in the February 2013 Southern Trust / Leon Black estate-planning corres
 This is **not** the same document as the July 15, 2014 **$20 million** algorithms invoice. Shared names and broad subject matter warrant comparison, but **not summing the dollar figures or asserting that one contract became the other**. The relevant original agreement, amendments, payment records and deliverables remain open questions.
 
 The curated MK6 Document Dossier compares these records without adding any new graph relationship or inferring wrongdoing. [See the protocol](DOCUMENT_DOSSIERS.md).
+
+## MK8: new 2014 receipt correspondence reported in official Senate letter
+
+The [March 20, 2026 Senate Finance letter](https://www.finance.senate.gov/imo/media/doc/senator_wyden_letter_to_leon_black_redacted.pdf), page 3, reproduces an image of a **July 15, 2014** Richard Kahn email reporting **$20 million received in STC**. The letter cites underlying DOJ file **EFTA01915809**, which was not independently downloaded and examined here.
+
+This is stronger receipt-related evidence than the July 2014 invoice alone. The same date and nominal amount are notable. Yet the email excerpt does not specify a payment allocation to the particular algorithm invoice, the invoice's recipient-entity field is unfilled, and neither document demonstrates algorithm delivery or operation.
+
+Case 002 now has a new **reported-receipt** milestone, a corresponding source in its registry and a new hypothesis expressly testing whether the records concern the same invoice. The MK7 transaction lab displays the Senate-sourced correspondence as a **candidate**, not as a validated banking transfer. See [MK8 protocol](EVIDENCE_AUDIT.md).
+
+**Do not add the $23.5 million 2013 draft figure to the 2014 invoice and receipt as though they describe three independent settled amounts.**

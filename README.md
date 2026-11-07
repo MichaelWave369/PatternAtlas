@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK7 includes
+## What MK8 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Evidence Audit and SHA-256 packets:** inspect exact source-to-claim references, open proof gaps, review flags, and portable digest-checked research snapshots. Private notes are excluded. [MK8 protocol](docs/EVIDENCE_AUDIT.md).
 - **Transaction Reconciliation Lab:** compare invoices and ledger candidates field by field, never assume metadata proves payment, preserve secondary-source labels, and export private notes. [MK7 protocol](docs/TRANSACTION_RECONCILIATION.md).
 - **Document Dossiers:** curated source-pair comparisons plus private research copies, original citation links, competing interpretations, and the mandatory 'not established' section. [MK6 protocol](docs/DOCUMENT_DOSSIERS.md).
 - **Research Queue:** turns case hypotheses and claim-trace limits into concrete research tasks. Track work status, note missing records, require substantial findings for manually reviewed tasks, and export source-linked checklists. See [MK5 research protocol](docs/RESEARCH_OPERATIONS.md).
@@ -80,7 +81,9 @@ Assessment levels:
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
 
-**MK7 reconciliation workspace:** A $30,000 invoice and a *secondary-reported* April 2015 entry can be compared without treating it as a settled payment. The original ledger line has not been independently inspected. Case 002 has no invented bank transaction. USD-only, no scoring, no automatic conclusions. Research data is local until exported.
+**MK8 new source:** A March 2026 U.S. Senate Finance letter reproduces a July 15, 2014 email reporting a $20 million wire received by Southern Trust. Its matching date/amount to a July 2014 invoice is noteworthy but **does not establish allocation to that invoice**, independently verified bank settlement, or software delivery. See [the updated Case 002 memo](docs/CASE_002_FINDINGS.md).
+
+**MK7 reconciliation workspace:** A $30,000 invoice and a *secondary-reported* April 2015 entry can be compared without treating it as a settled payment. The original ledger line has not been independently inspected. Case 002 now contains a Senate-sourced correspondence candidate reporting a same-day receipt, rather than a fabricated bank settlement. USD-only, no scoring, no automatic conclusions. Research data is local until exported.
 
 **MK6 dossier workspace:** Two records can be compared without creating graph edges. Curated pairs are read-only, private copies are saved separately per case, and exports require user action. A changed source URL, citation or date invalidates old comparison metadata.
 
@@ -100,6 +103,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case/research-queue/dossier/reconciliation schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case/research-queue/dossier/reconciliation/audit schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.

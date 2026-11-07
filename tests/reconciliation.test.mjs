@@ -27,7 +27,7 @@ test('both curated seed invoices remain explicitly separate from transaction evi
   assert.equal(s1.invoices.length,1);
   assert.equal(s1.entries.length,1);
   assert.equal(s2.invoices.length,1);
-  assert.equal(s2.entries.length,0);
+  assert.equal(s2.entries.length,1);
   assert.equal(s1.invoices[0].invoiceNo,'1501');
   assert.equal(s1.invoices[0].amountCents,3000000);
   assert.equal(s2.invoices[0].amountCents,2000000000);
@@ -182,5 +182,5 @@ test('existing invoice and secondary candidate stay source-visible if private da
   const b=emptyReconciliation(c1);
   assert.equal(listInvoices(b,s1).length,1);
   assert.equal(listEntries(b,s1).length,1);
-  assert.equal(listEntries(b,s2).length,0);
+  assert.equal(listEntries(b,s2).length,1);
 });

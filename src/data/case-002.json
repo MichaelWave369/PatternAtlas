@@ -3,7 +3,7 @@
   "title": "The 2014 Algorithm Invoice",
   "subtitle": "Southern Trust · Estate Planning · Documentary Boundaries",
   "updated": "2026-11-06",
-  "description": "A 2013 revised estate-planning service-letter draft and a 2014 Southern Trust algorithm invoice document are compared as separate records with overlapping counterparties. Neither establishes completed payment, software delivery or an amendment linking them.",
+  "description": "A February 2013 draft, a July 2014 invoice-form document, and a 2026 Senate letter reproducing a same-day 2014 reported wire receipt are compared as distinct records. A matching amount and date do not by themselves prove invoice allocation or algorithm delivery.",
   "sources": [
     {
       "id": "source-2014-invoice",
@@ -22,6 +22,15 @@
       "url": "https://efta.threats.watch/documents/EFTA01188213",
       "citation": "EFTA01188213",
       "note": "Archive-indexed February 11, 2013; header identifies February 6 revisions to a February 5 lawyer's draft. Draft terms describe a conditional $23.5 million estate-planning fee to Southern Trust. Does not establish execution, payment, algorithm development, or relation to the July 2014 invoice."
+    },
+    {
+      "id": "source-2026-senate-wire",
+      "title": "Senate Finance letter reproducing July 2014 wire receipt email",
+      "date": "2026-03-20",
+      "category": "reference",
+      "url": "https://www.finance.senate.gov/imo/media/doc/senator_wyden_letter_to_leon_black_redacted.pdf",
+      "citation": "Senate Finance letter (Mar 20 2026), p. 3; cites EFTA01915809",
+      "note": "A letter from Senator Ron Wyden includes an embedded image of July 15, 2014 correspondence. In that image Richard Kahn reports a $20 million wire received in Southern Trust Company. The letter points to DOJ EFTA01915809. The DOJ original was not independently retrieved here. The email does not identify the July 2014 algorithm invoice, show bank settlement documents, or establish algorithm delivery."
     }
   ],
   "nodes": [
@@ -106,6 +115,16 @@
       "sourceIds": [
         "source-2014-invoice"
       ]
+    },
+    {
+      "id": "t2",
+      "date": "2014-07-15",
+      "title": "2014 wire-receipt email reproduced in a 2026 Senate letter",
+      "description": "The 2026 Senate Finance letter reproduces an image of a July 15, 2014 Kahn email saying a $20 million wire was received in STC. This is documentary correspondence reporting a receipt, not independently obtained bank settlement or proof the specific invoice was paid.",
+      "assessment": "reported",
+      "sourceIds": [
+        "source-2026-senate-wire"
+      ]
     }
   ],
   "hypotheses": [
@@ -131,6 +150,18 @@
         "source-2013-draft",
         "source-2014-invoice"
       ]
+    },
+    {
+      "id": "h3",
+      "question": "Was the July 15, 2014 reported $20 million wire allocated to the same-day estate-planning algorithm invoice?",
+      "context": "The July 15 invoice and a same-day Kahn email reproduced by the U.S. Senate Finance Committee describe $20 million and Southern Trust, but no invoice number links the documents.",
+      "forEvidence": "Matching date, amount and receiving institution are reported in different types of records.",
+      "againstEvidence": "The invoice's billed-entity placeholder is unfilled, and the email excerpt lacks the invoice number, signed engagement scope, and bank settlement reference.",
+      "nextCheck": "Retrieve DOJ EFTA01915809 and the underlying bank debit/credit records. Confirm invoice allocation through an explicit remittance reference or receiving-party bookkeeping and seek independent service-delivery proof.",
+      "sourceIds": [
+        "source-2014-invoice",
+        "source-2026-senate-wire"
+      ]
     }
   ],
   "traceSteps": [
@@ -154,6 +185,17 @@
       "notEstablished": "Whether the document was final, paid, or linked to delivered algorithmic services.",
       "sourceIds": [
         "source-2014-invoice"
+      ]
+    },
+    {
+      "id": "tr2",
+      "date": "2014-07-15",
+      "stage": "reported-receipt",
+      "title": "A July 2014 email reportedly confirms a $20 million wire received by Southern Trust",
+      "established": "A March 2026 Senate Finance letter reproduces a July 15, 2014 email image in which Richard Kahn says a $20 million wire was received in Southern Trust Company.",
+      "notEstablished": "That the reported receipt settled the specific July 15 algorithm invoice, who remitted the wire as shown on bank records, or that algorithmic services were delivered.",
+      "sourceIds": [
+        "source-2026-senate-wire"
       ]
     }
   ]

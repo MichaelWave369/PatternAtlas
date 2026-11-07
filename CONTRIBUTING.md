@@ -50,3 +50,7 @@ Document Dossiers must always distinguish each source's actual words from an inf
 ## MK7 transaction reconciliation standards
 
 Never classify an invoice or ledger label as completed payment on metadata alone. Require independent settlement evidence and preserve incomplete invoice numbers and source-provenance conflicts. All inspection statuses are researcher-entered. See [the transaction reconciliation protocol](docs/TRANSACTION_RECONCILIATION.md).
+
+## MK8 audit packet standards
+
+A source-to-claim matrix is an index of explicit citations, not a confidence score. SHA-256 export digests detect payload changes, not authorship, chain of custody, or truth. A reported receipt must be distinguished from an invoice allocation and independent bank settlement. Audit packets exclude private annotations. See [MK8 audit protocol](docs/EVIDENCE_AUDIT.md).
