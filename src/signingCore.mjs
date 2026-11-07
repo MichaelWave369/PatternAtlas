@@ -63,7 +63,7 @@ export function publicCard(identity){
   if(!isObject(identity)||!ec(identity.publicKey)||!hex(identity.fingerprint))
     throw Error('No valid signing identity is active.');
   return {format:PUBLIC_CARD_FORMAT,algorithm:SIGN_ALG,
-    fingerprint:identity.fingerprint,publicKey:identity.publicKey,
+    fingerprint:identity.fingerprint,publicKey:{...identity.publicKey},
     warning:'Verify this key fingerprint independently. This unsigned card does not establish author identity.'};
 }
 export async function signCapsule(capsule,identity,label,subtle=globalThis.crypto?.subtle){
@@ -77,7 +77,7 @@ export async function signCapsule(capsule,identity,label,subtle=globalThis.crypt
   if((await fingerprintPublic(identity.publicKey,s))!==identity.fingerprint)
     throw Error('Public key fingerprint does not match the active identity.');
   const statement={format:SIGNED_FORMAT,algorithm:SIGN_ALG,signedAt:new Date().toISOString(),
-    signerLabel:label.trim(),publicKey:identity.publicKey,
+    signerLabel:label.trim(),publicKey:{...identity.publicKey},
     keyFingerprint:identity.fingerprint,capsule};
   const signed=await s.sign({name:'ECDSA',hash:'SHA-256'},identity.keys.privateKey,bytes(statement));
   return {format:SIGNED_FORMAT,statement,signature:toUrl(new Uint8Array(signed))};
@@ -142,7 +142,7 @@ export async function encryptIdentity(identity,passphrase,subtle=globalThis.cryp
   const encrypted=await s.encrypt({name:'AES-GCM',iv,additionalData:CONTEXT},aes,privatePkcs8);
   return {format:BACKUP_FORMAT,kdf:'PBKDF2-SHA256',iterations:PBKDF2_ROUNDS,
     cipher:'AES-256-GCM',salt:toUrl(salt),iv:toUrl(iv),ciphertext:toUrl(new Uint8Array(encrypted)),
-    publicKey:identity.publicKey,fingerprint:identity.fingerprint};
+    publicKey:{...identity.publicKey},fingerprint:identity.fingerprint};
 }
 export async function decryptIdentity(backup,passphrase,subtle=globalThis.crypto?.subtle){
   const s=subtleOrFail(subtle);
@@ -168,6 +168,6 @@ export async function decryptIdentity(backup,passphrase,subtle=globalThis.crypto
     const signed=await s.sign({name:'ECDSA',hash:'SHA-256'},privateKey,challenge);
     if(!await s.verify({name:'ECDSA',hash:'SHA-256'},publicKey,signed,challenge))
       throw Error('Decrypted private key does not match the public key.');
-    return {keys:{privateKey,publicKey},publicKey:backup.publicKey,fingerprint:backup.fingerprint};
+    return {keys:{privateKey,publicKey},publicKey:{...backup.publicKey},fingerprint:backup.fingerprint};
   }catch{throw Error('Wrong passphrase, corrupted backup, or mismatched private key. No key was loaded.');}
 }

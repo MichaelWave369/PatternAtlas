@@ -172,3 +172,21 @@ test('signing rejects empty self-reported labels and missing private keys',async
   await assert.rejects(signCapsule(await capsule(),{publicKey:(await identity()).publicKey,
     fingerprint:(await identity()).fingerprint},'Researcher',subtle),/active private key/);
 });
+
+
+test('exported signed statements and public cards cannot mutate an active signing identity',async()=>{
+  const id=await identity();
+  const firstFingerprint=id.fingerprint;
+  const card=publicCard(id);
+  card.publicKey.x='A'.repeat(43);
+  assert.equal(id.publicKey.x.length,43);
+  assert.notEqual(id.publicKey.x,'A'.repeat(43));
+  const artifact=await signed();
+  artifact.statement.publicKey.d='never-export-private-material';
+  artifact.statement.publicKey.x='B'.repeat(43);
+  assert.equal('d' in id.publicKey,false);
+  assert.notEqual(id.publicKey.x,'B'.repeat(43));
+  assert.equal(await fingerprintPublic(id.publicKey,subtle),firstFingerprint);
+  const next=await signed();
+  assert.equal((await verifySignedCapsule(next,'',subtle)).ok,true);
+});
