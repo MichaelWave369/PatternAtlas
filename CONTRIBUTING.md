@@ -70,3 +70,7 @@ Treat selected case content as potentially sensitive even when optional private 
 ## MK12 signing and key-handling rules
 
 Never export a plaintext private key or present a self-issued signature as verified human identity. Signed statements must cover the complete capsule, public key and declared signer metadata. Verify an expected public-key fingerprint obtained independently. Always reject unexpected private JWK material and unsupported algorithms. Store neither keys nor passphrases automatically. [Signed Capsules protocol](docs/SIGNED_CAPSULES.md).
+
+## MK13 key-continuity research safeguards
+
+Never treat a self-signed revocation as a trusted timestamp or automatically invalidate historical signatures. Both old and new keys must authorize rotation, and recipients must pin the previous key out of band. Distinguish mathematical signature validity, independent key trust, and underlying historical evidence. No claims about identity, payments, or guilt follow merely from cryptographic key control. See [MK13 protocol](docs/KEY_CONTINUITY.md).
