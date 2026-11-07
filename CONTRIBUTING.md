@@ -66,3 +66,7 @@ Preserve source-independent PDF fingerprinting, protect old records on source dr
 ## MK11 Case Capsule privacy and portability
 
 Treat selected case content as potentially sensitive even when optional private layers are excluded. Ensure default export includes no private original-document manifest or handling journal, require explicit opt-in for each, never include PDF bytes and never write to browser storage when opening a capsule. Preserve clear distinction between structural checksum validation and trusted authorship or factual accuracy. [Case Capsule protocol](docs/CASE_CAPSULES.md).
+
+## MK12 signing and key-handling rules
+
+Never export a plaintext private key or present a self-issued signature as verified human identity. Signed statements must cover the complete capsule, public key and declared signer metadata. Verify an expected public-key fingerprint obtained independently. Always reject unexpected private JWK material and unsupported algorithms. Store neither keys nor passphrases automatically. [Signed Capsules protocol](docs/SIGNED_CAPSULES.md).

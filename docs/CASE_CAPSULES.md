@@ -65,3 +65,7 @@ Run `npm test` and `npm run build`.
 MK11 adds regression tests for default privacy exclusions, each optional evidence layer, handling-to-document dependencies, source URL drift, modified page notes, forged/rehashed audit matrices, event hash corruption, incorrect privacy declarations, wrong-case capsules, case drift, malformed envelopes and size limits.
 
 **Ledger Above Ego. Evidence Above Assumption.**
+
+## MK12 optional researcher signatures
+
+MK11 capsules remain **unsigned** and verifiable exactly as before. The new **Capsule signatures** sidebar page accepts an already exported MK11 capsule and produces a *separate signed wrapper*, keeping existing research data and privacy flags intact. The wrapper can be verified offline with its embedded public key; an independently trusted key fingerprint is required before attributing the signature to an expected signer. See [MK12 signing protocol](SIGNED_CAPSULES.md).
