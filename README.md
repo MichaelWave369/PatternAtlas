@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK4 includes
+## What MK5 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Research Queue:** turns case hypotheses and claim-trace limits into concrete research tasks. Track work status, note missing records, require substantial findings for manually reviewed tasks, and export source-linked checklists. See [MK5 research protocol](docs/RESEARCH_OPERATIONS.md).
 - **Source Verification Console:** claim-by-claim inspection, manual source provenance, counterevidence with written follow-ups, case-scoped review exports, and drift detection. See [verification protocol](docs/VERIFICATION_PROTOCOL.md).
 - **Schema validation:** HTTPS links, finite coordinates, safe identifiers, unique IDs and existing source references are enforced on imports and saves. Validation does not make a claim true.
 - **Connection map:** pan, zoom, select entities or edges, filter by type and search. Click a relationship to inspect the underlying record and its scope.
@@ -77,6 +78,8 @@ Assessment levels:
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
 
+**MK5 research queue:** Work status and researcher-added tasks are stored separately per case. A completed research task is not a historical conclusion. Research queue JSON and Markdown briefs can be exported. No automatic payment confirmation or remote source checking is performed.
+
 **MK4 verification records:** Saved separately by case ID in local browser storage; export/import JSON or download a Markdown memo. Inspection is not factual verification. A changed claim or source URL invalidates old review records. No automated scraping or remote authentication is performed.
 
 **Persistence:** New cases are stored in localStorage only, with validation and a size cap. Export them before clearing browser data. Unpublished local cases do not sync between computers or browsers. Existing MK2 notes for Case 001 retain their original storage key. Other cases' notebooks are scoped by case ID, and imported notebook JSON must match the active case.
@@ -91,6 +94,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) and [src/data/README.md](src/data/README.
 
 ## Tech
 
-React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
+React 19, TypeScript, Vite 6, SVG graph, CSS, runtime case and research-queue schema validation, source-controlled and locally authored JSON. No analytics, trackers, remote database or required account. Optional notes are saved only in local browser storage and can be exported. Static site. MIT license.
 
 **PHI369 Labs** · People Above Profit · Ledger Above Ego.

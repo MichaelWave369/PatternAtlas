@@ -38,3 +38,7 @@ The seed dataset was assembled from public references discussed during initial r
 - Reviews and provenance checks are saved locally per case; export important data.
 - A source or claim edit invalidates older review entries instead of silently transferring them.
 - [Read the Source Verification Protocol](docs/VERIFICATION_PROTOCOL.md) before approving changes.
+
+## MK5 research task standards
+
+Research Queue tasks must begin with an existing source citation. A mark of research reviewed means the investigator recorded a substantial note and evidence pointer. It does not mean the claim is historically proven. Do not treat secondary summaries of bank ledger entries as original settled transactions. See [Research Operations Protocol](docs/RESEARCH_OPERATIONS.md).
