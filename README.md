@@ -6,10 +6,11 @@ Pattern Atlas is a local-first, open-source React investigation workspace for tr
 
 > **Research preview:** Case 001 is a curated seed dataset with public document links. Source records are provided for independent inspection and are **not** a claim that every document, figure, or interpretation has been independently audited. Conclusions must never exceed the specific cited record.
 
-## What MK8 includes
+## What MK9 includes
 
 - **Multiple curated cases and a case switcher:** independent evidence graphs with no fabricated connections between cases.
 - **Local-first Case Studio:** create, fork, import or export case JSON; add sourced entities, relationships, events, hypotheses and trace milestones; remove draft records safely. Built-in cases remain read-only.
+- **Original Document Lab:** locally hash downloaded PDFs, compare exact file bytes, record page-specific notes and provenance, and export source-bound manifests without storing the files. [MK9 protocol](docs/ORIGINAL_DOCUMENTS.md).
 - **Evidence Audit and SHA-256 packets:** inspect exact source-to-claim references, open proof gaps, review flags, and portable digest-checked research snapshots. Private notes are excluded. [MK8 protocol](docs/EVIDENCE_AUDIT.md).
 - **Transaction Reconciliation Lab:** compare invoices and ledger candidates field by field, never assume metadata proves payment, preserve secondary-source labels, and export private notes. [MK7 protocol](docs/TRANSACTION_RECONCILIATION.md).
 - **Document Dossiers:** curated source-pair comparisons plus private research copies, original citation links, competing interpretations, and the mandatory 'not established' section. [MK6 protocol](docs/DOCUMENT_DOSSIERS.md).
@@ -80,6 +81,8 @@ Assessment levels:
 - **unverified**: a comparison or hypothesis lacks sufficient proof to assert a relationship.
 
 The graph is **schematic**, not a measure of geography, proximity, culpability, influence or organizational control.
+
+**MK9 documentary progression:** July 15, 2014 bank-status correspondence in EFTA01344226 records a pending expected wire and an expected sender earlier than the later reported $20m receipt. This is an email sequence, not independently verified bank timestamps. MK9 adds a local PDF fingerprint and manual page-inspection workflow for EFTA01344226, EFTA01915809 and unresolved EFTA00809214. Source files are never uploaded.
 
 **MK8 new source:** A March 2026 U.S. Senate Finance letter reproduces a July 15, 2014 email reporting a $20 million wire received by Southern Trust. Its matching date/amount to a July 2014 invoice is noteworthy but **does not establish allocation to that invoice**, independently verified bank settlement, or software delivery. See [the updated Case 002 memo](docs/CASE_002_FINDINGS.md).
 

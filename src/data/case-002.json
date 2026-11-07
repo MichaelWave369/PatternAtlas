@@ -3,7 +3,7 @@
   "title": "The 2014 Algorithm Invoice",
   "subtitle": "Southern Trust · Estate Planning · Documentary Boundaries",
   "updated": "2026-11-06",
-  "description": "A February 2013 draft, a July 2014 invoice-form document, and a 2026 Senate letter reproducing a same-day 2014 reported wire receipt are compared as distinct records. A matching amount and date do not by themselves prove invoice allocation or algorithm delivery.",
+  "description": "A February 2013 estate-planning draft, July 2014 algorithm invoice, earlier same-day bank-status correspondence, later reported receipt email, and primary-document locators are recorded as distinct evidentiary items. Matching dates and amounts alone do not verify invoice allocation or algorithm delivery.",
   "sources": [
     {
       "id": "source-2014-invoice",
@@ -31,6 +31,24 @@
       "url": "https://www.finance.senate.gov/imo/media/doc/senator_wyden_letter_to_leon_black_redacted.pdf",
       "citation": "Senate Finance letter (Mar 20 2026), p. 3; cites EFTA01915809",
       "note": "A letter from Senator Ron Wyden includes an embedded image of July 15, 2014 correspondence. In that image Richard Kahn reports a $20 million wire received in Southern Trust Company. The letter points to DOJ EFTA01915809. The DOJ original was not independently retrieved here. The email does not identify the July 2014 algorithm invoice, show bank settlement documents, or establish algorithm delivery."
+    },
+    {
+      "id": "source-2014-doj-wire-locator",
+      "title": "DOJ original PDF locator for July 2014 reported receipt email",
+      "date": "2014-07-15",
+      "category": "reference",
+      "url": "https://www.justice.gov/epstein/files/DataSet%2010/EFTA01915809.pdf",
+      "citation": "EFTA01915809 (DOJ locator; original not inspected)",
+      "note": "The Senate Finance letter cites this DOJ DataSet 10 PDF as the underlying document for a July 15, 2014 email reporting $20 million received by Southern Trust. The original PDF was not independently downloaded during this research; this registry item records the citation URL, not independent authentication."
+    },
+    {
+      "id": "source-2014-bank-inquiry",
+      "title": "July 15 2014 Deutsche Bank wire-status correspondence",
+      "date": "2014-07-15",
+      "category": "correspondence",
+      "url": "https://efta.threats.watch/documents/EFTA01344226",
+      "citation": "EFTA01344226",
+      "note": "An archive text extraction reproduces a 3:30 p.m. Deutsche Bank response saying the anticipated wire had not yet arrived, followed by a 3:36:59 p.m. reply from Richard Kahn naming Leon Black or one of his entities as the expected sender. These are statements in correspondence, not independently inspected bank ledger entries or proof of invoice allocation."
     }
   ],
   "nodes": [
@@ -125,6 +143,16 @@
       "sourceIds": [
         "source-2026-senate-wire"
       ]
+    },
+    {
+      "id": "t3",
+      "date": "2014-07-15",
+      "title": "Bank contact reports pending wire; expected sender identified",
+      "description": "EFTA01344226 contains same-day correspondence: the bank contact says the anticipated wire had not yet arrived at 3:30 p.m., and Kahn identifies Leon Black or an entity as its expected source in a 3:36 p.m. reply. The excerpt does not establish a bank settlement or refer to the algorithm invoice.",
+      "assessment": "reported",
+      "sourceIds": [
+        "source-2014-bank-inquiry"
+      ]
     }
   ],
   "hypotheses": [
@@ -162,6 +190,18 @@
         "source-2014-invoice",
         "source-2026-senate-wire"
       ]
+    },
+    {
+      "id": "h4",
+      "question": "Do the July 15 pending-wire email and later receipt email describe the same bank transaction?",
+      "context": "Separate records describe a not-yet-arrived transfer and a subsequent $20 million receipt. Neither provides a shared bank reference number in the excerpts reviewed.",
+      "forEvidence": "The date, receiving account context, and expected sender are consistent with a possible common transaction.",
+      "againstEvidence": "Without original settlement timestamps, reference identifiers, and full correspondence, a common transaction remains unproven; the extracted bank email is from a secondary archive.",
+      "nextCheck": "Retrieve and compare originals EFTA01344226 and EFTA01915809 and independently sourced bank records. Record the actual timestamps and transaction reference, not only email send times.",
+      "sourceIds": [
+        "source-2014-bank-inquiry",
+        "source-2026-senate-wire"
+      ]
     }
   ],
   "traceSteps": [
@@ -195,6 +235,18 @@
       "established": "A March 2026 Senate Finance letter reproduces a July 15, 2014 email image in which Richard Kahn says a $20 million wire was received in Southern Trust Company.",
       "notEstablished": "That the reported receipt settled the specific July 15 algorithm invoice, who remitted the wire as shown on bank records, or that algorithmic services were delivered.",
       "sourceIds": [
+        "source-2026-senate-wire"
+      ]
+    },
+    {
+      "id": "tr3",
+      "date": "2014-07-15",
+      "stage": "awaiting-bank-confirmation",
+      "title": "Bank wire-status exchange precedes a later reported receipt",
+      "established": "Extracted July 15 bank-status correspondence identifies a pending transfer and a reported expected sender, before a later email reports $20 million received.",
+      "notEstablished": "That the earlier pending wire and later reported receipt refer to the same bank transaction, or that any transfer was allocated to the specific algorithm invoice.",
+      "sourceIds": [
+        "source-2014-bank-inquiry",
         "source-2026-senate-wire"
       ]
     }

@@ -54,3 +54,7 @@ Never classify an invoice or ledger label as completed payment on metadata alone
 ## MK8 audit packet standards
 
 A source-to-claim matrix is an index of explicit citations, not a confidence score. SHA-256 export digests detect payload changes, not authorship, chain of custody, or truth. A reported receipt must be distinguished from an invoice allocation and independent bank settlement. Audit packets exclude private annotations. See [MK8 audit protocol](docs/EVIDENCE_AUDIT.md).
+
+## MK9 original-document standards
+
+File hashes detect changed bytes and duplicate mirrors. They do **not** certify an original, a sender, a bank transaction or the truth of a document. Always record a page number, the narrow observation, and what that page fails to establish. Keep sensitive details out of exported notes and record whether the download link is official, a mirror, or unverified. [Original Document Protocol](docs/ORIGINAL_DOCUMENTS.md).

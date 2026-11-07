@@ -68,7 +68,7 @@ test('valid self-contained evidence packets round-trip without importing cases',
   const result=await verifyPacket(parsed,subtle);
   assert.equal(result.ok,true,result.errors.join('; '));
   assert.equal(result.caseId,'CASE-002');
-  assert.equal(result.sources,3);
+  assert.equal(result.sources,5);
 });
 test('a modified case source causes checksum failure after export',async()=>{
   const packet=await makePacket(createPayload(c2,seed(c2)),subtle);

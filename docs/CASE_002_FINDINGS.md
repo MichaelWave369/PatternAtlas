@@ -44,3 +44,9 @@ This is stronger receipt-related evidence than the July 2014 invoice alone. The 
 Case 002 now has a new **reported-receipt** milestone, a corresponding source in its registry and a new hypothesis expressly testing whether the records concern the same invoice. The MK7 transaction lab displays the Senate-sourced correspondence as a **candidate**, not as a validated banking transfer. See [MK8 protocol](EVIDENCE_AUDIT.md).
 
 **Do not add the $23.5 million 2013 draft figure to the 2014 invoice and receipt as though they describe three independent settled amounts.**
+
+## MK9 · Earlier July 15 bank-status correspondence
+
+The [archive extraction of EFTA01344226](https://efta.threats.watch/documents/EFTA01344226) contains approximately 3:30–3:36 p.m. July 15 correspondence in which a bank contact says a pending wire had not yet arrived, while Richard Kahn identifies Leon Black or one of his entities as its expected source. The July 15 receipt email cited by the Senate letter is later. These are the times in the emails, not verified bank processing timestamps.
+
+The new **Original Document Lab** lists EFTA01344226 and EFTA01915809 as original-file inspection priorities. Neither the earlier sender statement nor the later reported receipt uniquely establishes the same bank transaction or the algorithm invoice's allocation. MK9 adds no new financial graph edge. See [MK9 protocol](ORIGINAL_DOCUMENTS.md).

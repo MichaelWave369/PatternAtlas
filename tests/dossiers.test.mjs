@@ -27,13 +27,13 @@ test('all featured dossier pairs resolve to two actual sources in the right case
   }
 });
 test('Case 002 now contains separate 2013 draft and 2014 invoice sources',()=>{
-  assert.equal(c2.sources.length,3);
+  assert.equal(c2.sources.length,5);
   const draft=c2.sources.find((s)=>s.id==='source-2013-draft');
   assert.match(draft.note,/draft/i);
   assert.match(draft.note,/not establish execution/i);
   assert.equal(c2.edges.length,2);
   assert.ok(c2.edges.every((e)=>e.sourceIds.includes('source-2014-invoice')));
-  assert.equal(c2.traceSteps.length,3);
+  assert.equal(c2.traceSteps.length,4);
 });
 test('empty dossier collection is valid for every case',()=>{
   for(const c of [c1,c2]){
