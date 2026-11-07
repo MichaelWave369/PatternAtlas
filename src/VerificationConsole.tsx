@@ -219,7 +219,7 @@ export default function VerificationConsole({caseFile}:{caseFile:CaseFile}) {
           {REVIEW_STATES.map((s)=><option key={s} value={s}>{LABELS[s]}</option>)}
         </select></label>
         <label className="verify-field">Document associated with this note<select value={reviewDraft.sourceId} onChange={(e)=>setReviewDraft((d)=>({...d,sourceId:e.target.value}))}>
-          {active.sourceIds.map((id)=><option key={id} value={id}>{caseFile.sources.find((s)=>s.id===id)?.citation||id}</option>)}
+          {active.sourceIds.map((id:string)=><option key={id} value={id}>{caseFile.sources.find((s)=>s.id===id)?.citation||id}</option>)}
         </select></label>
         <label className="verify-field">Short excerpt or exact page / paragraph reference<textarea rows={3} maxLength={1400} value={reviewDraft.excerpt} onChange={(e)=>setReviewDraft((d)=>({...d,excerpt:e.target.value}))} placeholder="Only quote a brief relevant excerpt, or describe the precise location in the document…" /></label>
         <label className="verify-field">Analysis, unresolved gaps, and alternative readings<textarea rows={4} maxLength={3500} value={reviewDraft.analysis} onChange={(e)=>setReviewDraft((d)=>({...d,analysis:e.target.value}))} placeholder="Does the source directly support this narrow wording? What is missing or contradicted?" /></label>
