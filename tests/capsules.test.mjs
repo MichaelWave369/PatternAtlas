@@ -153,7 +153,7 @@ test('unrelated private manifest cannot be attached to the case',async()=>{
   const packet=prepareCapsulePayload(c1,seed(c1),manifest,null,{originals:true,handling:false},stamp);
   const result=await validateCapsulePayload(packet,webcrypto.subtle);
   assert.equal(result.ok,false);
-  assert.match(result.errors.join(' '),/another case/);
+  assert.match(result.errors.join(' '),/different case/);
 });
 test('size limit and field restrictions prevent unbounded import',async()=>{
   const capsule=await build();
